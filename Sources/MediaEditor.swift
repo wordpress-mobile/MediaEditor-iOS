@@ -5,7 +5,7 @@ import UIKit
  is a Navigation Controller that presents them.
  Also, by also being a ViewController, this allows it to be custom presented.
  */
-public class MediaEditor: UINavigationController {
+open class MediaEditor: UINavigationController {
     static var capabilities: [MediaEditorCapability.Type] = [MediaEditorCropZoomRotate.self]
 
     var hub: MediaEditorHub = {
@@ -24,7 +24,7 @@ public class MediaEditor: UINavigationController {
 
     var onCancel: (() -> ())?
 
-    var actions: [MediaEditorOperation] = []
+    public var actions: [MediaEditorOperation] = []
 
     var isSingleImageAndCapability: Bool {
         return ((asyncImages.count == 1) || (images.count == 1 && asyncImages.count == 0)) && Self.capabilities.count == 1
@@ -40,7 +40,7 @@ public class MediaEditor: UINavigationController {
         return hub.selectedThumbIndex
     }
 
-    public var styles: MediaEditorStyles = [:] {
+    open var styles: MediaEditorStyles = [:] {
         didSet {
             currentCapability?.apply(styles: styles)
             hub.apply(styles: styles)
@@ -71,7 +71,7 @@ public class MediaEditor: UINavigationController {
         setup()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
