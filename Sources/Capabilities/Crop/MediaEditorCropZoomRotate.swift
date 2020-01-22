@@ -4,7 +4,7 @@ import TOCropViewController
 class MediaEditorCropZoomRotate: NSObject, MediaEditorCapability {
     static var name = "Crop, Zoom, Rotate"
 
-    static var icon = UIImage(named: "gridicons-crop", in: Bundle(for: MediaEditorCropZoomRotate.self), compatibleWith: nil)!
+    static var icon = UIImage(named: "gridicons-crop", in: .mediaEditor, compatibleWith: nil)!
 
     var image: UIImage
 

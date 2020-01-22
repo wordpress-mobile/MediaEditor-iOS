@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B11A3CF23D8F590000721F5 /* Bundle+mediaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */; };
 		8B50469723D7C88200068F66 /* MediaEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50469523D7C88200068F66 /* MediaEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B5046A423D7C9AC00068F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046A323D7C9AC00068F66 /* AppDelegate.swift */; };
 		8B5046A623D7C9AC00068F66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046A523D7C9AC00068F66 /* SceneDelegate.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+mediaEditor.swift"; sourceTree = "<group>"; };
 		8B50469223D7C88200068F66 /* MediaEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B50469523D7C88200068F66 /* MediaEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaEditor.h; sourceTree = "<group>"; };
 		8B50469623D7C88200068F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				8B5046C423D7CE1600068F66 /* UIImage+AsyncImage.swift */,
 				8B5046C523D7CE1600068F66 /* PHAsset+AsyncImage.swift */,
+				8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				8B5046DB23D7CE1600068F66 /* MediaEditorCropZoomRotate.swift in Sources */,
 				8B5046E323D7CE1600068F66 /* MediaEditorStyle.swift in Sources */,
 				8B5046D823D7CE1600068F66 /* MediaEditor.swift in Sources */,
+				8B11A3CF23D8F590000721F5 /* Bundle+mediaEditor.swift in Sources */,
 				8B5046DA23D7CE1600068F66 /* TOCropViewController+Ext.swift in Sources */,
 				8B5046E423D7CE1600068F66 /* MediaEditorOperation.swift in Sources */,
 				8B5046DD23D7CE1600068F66 /* MediaEditorHub.swift in Sources */,

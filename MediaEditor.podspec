@@ -17,7 +17,10 @@ Pod::Spec.new do |s|
 
   s.module_name = "MediaEditor"
   s.source_files = 'Sources/**/*.{h,m,swift}'
-  s.resources = 'Sources/**/*.{xcassets,storyboard}'
+  s.resources = 'Sources/**/*.{storyboard}'
+  s.resource_bundles = {
+    'MediaEditor' => 'Sources/**/*.{xcassets}'
+  }
 
   s.dependency 'TOCropViewController', '~> 2.5.2'
 end
