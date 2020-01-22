@@ -197,3 +197,6 @@ iOSInjectionProject/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### Carthage ###
+Carthage/Checkouts
+Carthage/Build
