@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 
   s.module_name = "MediaEditor"
-  s.source_files = 'Sources/**/*.{h,m,swift,xcdatamodeld}'
-  s.resources = 'Sources/**/*.{xcassets}'
+  s.source_files = 'Sources/**/*.{h,m,swift}'
+  s.resources = 'Sources/**/*.{xcassets,storyboard}'
 
   s.dependency 'TOCropViewController', '~> 2.5.2'
 end
