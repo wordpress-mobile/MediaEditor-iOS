@@ -11,7 +11,7 @@ workflows:
           name: Test
           xcode-version: "11.2.1"
           project: MediaEditor.xcodeproj
-          scheme: Demo
+          scheme: Example
           device: iPhone 11
           ios-version: "13.2.2"
           bundle-install: true
