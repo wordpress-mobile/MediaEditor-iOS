@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  # Using 1.0 of our Orbs means it will use the latest 1.0.x version from https://github.com/wordpress-mobile/circleci-orbs
+  ios: wordpress-mobile/ios@1.0
+
+workflows:
+  test_and_validate:
+    jobs:
+      - ios/test:
+          name: Test
+          xcode-version: "11.2.1"
+          project: MediaEditor.xcodeproj
+          scheme: Demo
+          device: iPhone 11
+          ios-version: "13.2.2"
+          bundle-install: true
+          carthage-update: true
