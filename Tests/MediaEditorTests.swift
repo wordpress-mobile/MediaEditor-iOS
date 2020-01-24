@@ -95,7 +95,7 @@ class MediaEditorTests: XCTestCase {
 
     func testWhenFinishEditingKeepRecordOfTheActions() {
         let mediaEditor = MediaEditor(image)
-        mediaEditor.actions = [.crop]
+        mediaEditor.currentCapability?.onFinishEditing(image, [.crop])
         mediaEditor.onFinishEditing = { _, _ in }
 
         mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
