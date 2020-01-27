@@ -214,6 +214,7 @@ class MediaEditorTests: XCTestCase {
         let thumbImage = UIImage(color: .black)
         let mediaEditor = MediaEditor(asyncImage)
         UIApplication.shared.topWindow?.addSubview(mediaEditor.view)
+        mediaEditor.view.layoutIfNeeded()
 
         asyncImage.simulate(fullImageHasBeenDownloaded: fullImage)
         asyncImage.simulate(thumbHasBeenDownloaded: thumbImage)
