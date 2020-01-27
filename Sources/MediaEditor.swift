@@ -73,7 +73,8 @@ open class MediaEditor: UINavigationController {
     ///
     public init(_ image: UIImage) {
         self.images = [0: image]
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
@@ -84,7 +85,8 @@ open class MediaEditor: UINavigationController {
     ///
     public init(_ images: [UIImage]) {
         self.images = images.enumerated().reduce(into: [:]) { $0[$1.offset] = $1.element }
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
@@ -96,7 +98,8 @@ open class MediaEditor: UINavigationController {
     ///
     public init(_ asyncImage: AsyncImage) {
         self.asyncImages.append(asyncImage)
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
@@ -108,7 +111,8 @@ open class MediaEditor: UINavigationController {
     ///
     public init(_ asyncImages: [AsyncImage]) {
         self.asyncImages = asyncImages
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
@@ -116,16 +120,8 @@ open class MediaEditor: UINavigationController {
         super.init(coder: aDecoder)
     }
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
-        isEditingPlainUIImages = images.count > 0
-
-        hub.delegate = self
-
-        modalTransitionStyle = .crossDissolve
-        modalPresentationStyle = .fullScreen
-        navigationBar.isHidden = true
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -140,12 +136,21 @@ open class MediaEditor: UINavigationController {
     }
 
     private func setup() {
+        setupModalStyle()
         setupHub()
         setupForAsync()
         presentIfSingleImageAndCapability()
     }
 
+    private func setupModalStyle() {
+        modalTransitionStyle = .crossDissolve
+        modalPresentationStyle = .fullScreen
+        navigationBar.isHidden = true
+    }
+
     private func setupHub() {
+        hub.delegate = self
+
         hub.onCancel = { [weak self] in
             self?.cancel()
         }
@@ -166,6 +171,8 @@ open class MediaEditor: UINavigationController {
     }
 
     private func setupForAsync() {
+        isEditingPlainUIImages = images.count > 0
+        
         asyncImages.enumerated().forEach { offset, asyncImage in
             if let thumb = asyncImage.thumb {
                 thumbnailAvailable(thumb, offset: offset)
