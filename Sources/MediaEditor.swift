@@ -124,6 +124,11 @@ open class MediaEditor: UINavigationController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.isEnabled = false
+    }
+
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentCapability = nil
