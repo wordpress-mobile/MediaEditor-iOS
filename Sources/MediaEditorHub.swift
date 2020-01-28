@@ -203,7 +203,7 @@ class MediaEditorHub: UIViewController {
     }
 
     private func setupToolbar() {
-        toolbarHeight.constant = isSingleImage ? Constants.doneButtonHeight : Constants.thumbHeight
+        toolbarHeight.constant = isSingleImage ? Constants.toolbarHeight : Constants.thumbHeight
         thumbsCollectionView.isHidden = isSingleImage ? true : false
     }
 
@@ -260,7 +260,7 @@ class MediaEditorHub: UIViewController {
         static var imageCellIdentifier = "imageCell"
         static var capabCellIdentifier = "capabilityCell"
         static var thumbHeight: CGFloat = 64
-        static var doneButtonHeight: CGFloat = 44
+        static var toolbarHeight: CGFloat = 44
     }
 }
 
@@ -324,9 +324,11 @@ extension MediaEditorHub: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == imagesCollectionView {
             return CGSize(width: imagesCollectionView.frame.width, height: imagesCollectionView.frame.height)
+        } else if collectionView == thumbsCollectionView {
+            return CGSize(width: Constants.thumbHeight, height: Constants.thumbHeight)
+        } else {
+            return CGSize(width: Constants.toolbarHeight, height: Constants.toolbarHeight)
         }
-
-        return CGSize(width: 44, height: 44)
     }
 }
 
