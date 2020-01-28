@@ -198,6 +198,7 @@ class MediaEditorHub: UIViewController {
         thumbsCollectionView.reloadData()
         imagesCollectionView.reloadData()
         thumbsCollectionView.layoutIfNeeded()
+        imagesCollectionView.layoutIfNeeded()
         thumbsCollectionView.selectItem(at: IndexPath(row: selectedThumbIndex, section: 0), animated: false, scrollPosition: .right)
         imagesCollectionView.scrollToItem(at: IndexPath(row: selectedThumbIndex, section: 0), at: .right, animated: false)
     }
