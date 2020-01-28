@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B11A3CF23D8F590000721F5 /* Bundle+mediaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */; };
+		8B12DEC723DFB21A00243CD8 /* MediaEditor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B50469223D7C88200068F66 /* MediaEditor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B50469723D7C88200068F66 /* MediaEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50469523D7C88200068F66 /* MediaEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B5046A423D7C9AC00068F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046A323D7C9AC00068F66 /* AppDelegate.swift */; };
 		8B5046A823D7C9AC00068F66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046A723D7C9AC00068F66 /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8B12DEC723DFB21A00243CD8 /* MediaEditor.framework in Embed Frameworks */,
 				8B5046B923D7CCBD00068F66 /* TOCropViewController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
