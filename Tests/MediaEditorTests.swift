@@ -30,6 +30,14 @@ class MediaEditorTests: XCTestCase {
         expect(mediaEditor.modalPresentationStyle).to(equal(.fullScreen))
     }
 
+    func testDisableInteractivePopGestureRecognizer() {
+        let mediaEditor = MediaEditor(image)
+
+        mediaEditor.viewDidLoad()
+
+        expect(mediaEditor.interactivePopGestureRecognizer?.isEnabled).to(beFalse())
+    }
+
     func testHubDelegate() {
         let mediaEditor = MediaEditor(image)
 
@@ -95,7 +103,7 @@ class MediaEditorTests: XCTestCase {
 
     func testWhenFinishEditingKeepRecordOfTheActions() {
         let mediaEditor = MediaEditor(image)
-        mediaEditor.actions = [.crop]
+        mediaEditor.currentCapability?.onFinishEditing(image, [.crop])
         mediaEditor.onFinishEditing = { _, _ in }
 
         mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
@@ -214,6 +222,7 @@ class MediaEditorTests: XCTestCase {
         let thumbImage = UIImage(color: .black)
         let mediaEditor = MediaEditor(asyncImage)
         UIApplication.shared.topWindow?.addSubview(mediaEditor.view)
+        mediaEditor.view.layoutIfNeeded()
 
         asyncImage.simulate(fullImageHasBeenDownloaded: fullImage)
         asyncImage.simulate(thumbHasBeenDownloaded: thumbImage)

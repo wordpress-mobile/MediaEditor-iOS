@@ -1,45 +1,64 @@
 import UIKit
 
 /**
- Since each capability has it's own (or is a) View Controller, the Media Editor
- is a Navigation Controller that presents them.
- Also, by also being a ViewController, this allows it to be custom presented.
- */
-open class MediaEditor: UINavigationController {
-    static var capabilities: [MediaEditorCapability.Type] = [MediaEditorCropZoomRotate.self]
+ An object that manages editing media.
 
+ You can start the MediaEditor with a single or an array of `UIImage` or `PHAsset` out of the box.
+ Also, you can give any other object as long it conforms to the `AsyncImage` protocol.
+
+ # UINavigationController
+ Since each capability has it's own (or is a) View Controller, the Media Editor is also a Navigation Controller that presents them.
+ And by being a ViewController, this allows it to be custom presented.
+*/
+open class MediaEditor: UINavigationController {
+    /// The capabilities do be displayed in the Media Editor. You can add your own capability here.
+    public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorCropZoomRotate.self]
+
+    /// The ViewController that shows thumbnails and capabilities
     var hub: MediaEditorHub = {
         let hub: MediaEditorHub = MediaEditorHub.initialize()
         hub.loadViewIfNeeded()
         return hub
     }()
 
-    var images: [Int: UIImage] = [:]
+    /// Callback that is called after the user finishes editing images. It gives all the images and the operations made.
+    public var onFinishEditing: (([AsyncImage], [MediaEditorOperation]) -> ())?
 
-    var asyncImages: [AsyncImage] = []
+    /// Callback called when the user exists
+    public var onCancel: (() -> ())?
 
-    var editedImagesIndexes: Set<Int> = []
+    /// A dictionary that returns all the available images UIImages. The key is the index of the image.
+    public private(set) var images: [Int: UIImage] = [:]
 
-    var onFinishEditing: (([AsyncImage], [MediaEditorOperation]) -> ())?
+    /// All the async images that are being displayed.
+    public private(set) var asyncImages: [AsyncImage] = []
 
-    var onCancel: (() -> ())?
+    /// Indexes of the images that were edited.
+    public private(set) var editedImagesIndexes: Set<Int> = []
 
-    public var actions: [MediaEditorOperation] = []
+    /// The actions that were made in this session.
+    public private(set) var actions: [MediaEditorOperation] = []
 
-    var isSingleImageAndCapability: Bool {
+    /// Returns which MediaEditorCapability is being displayed.
+    public private(set) var currentCapability: MediaEditorCapability?
+
+    /// A Boolean value indicating whether the Media Editor is being used to edit plain UIImages
+    public private(set) var isEditingPlainUIImages = false
+
+     /// The index of the last capability tapped.
+    public private(set) var lastTappedCapabilityIndex = 0
+
+    /// A Boolean value indicating whether the Media Editor has just a single image and single capability.
+    public var isSingleImageAndCapability: Bool {
         return ((asyncImages.count == 1) || (images.count == 1 && asyncImages.count == 0)) && Self.capabilities.count == 1
     }
 
-    private(set) var currentCapability: MediaEditorCapability?
-
-    private var isEditingPlainUIImages = false
-
-    private var lastTappedCapabilityIndex = 0
-
-    var selectedImageIndex: Int {
+    /// The index of the image that is currently being displayed or being edited.
+    public var selectedImageIndex: Int {
         return hub.selectedThumbIndex
     }
 
+    /// A Dictionary of the styles to be applied in the Media Editor
     open var styles: MediaEditorStyles = [:] {
         didSet {
             currentCapability?.apply(styles: styles)
@@ -47,27 +66,53 @@ open class MediaEditor: UINavigationController {
         }
     }
 
+    /// A initializer for a single UIImage.
+    ///
+    /// Use this method to initialize the Media Editor with a single plain UIImage.
+    /// - Parameter image: `UIImage` to be displayed
+    ///
     public init(_ image: UIImage) {
         self.images = [0: image]
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
+    /// A initializer for an array of UIImage.
+    ///
+    /// Use this method to initialize the Media Editor with multiple UIImage.
+    /// - Parameter images: `[UIImage]` to be displayed
+    ///
     public init(_ images: [UIImage]) {
         self.images = images.enumerated().reduce(into: [:]) { $0[$1.offset] = $1.element }
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
+    /// A initializer for a single AsyncImage.
+    ///
+    /// Use this method to initialize the Media Editor with a single AsyncImage.
+    /// - Parameter asyncImage: `AsyncImage` to be displayed
+    /// - Note: This method accepts PHAsset out of the box
+    ///
     public init(_ asyncImage: AsyncImage) {
         self.asyncImages.append(asyncImage)
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
+    /// A initializer for an array of [AsyncImage].
+    ///
+    /// Use this method to initialize the Media Editor with multiple AsyncImage.
+    /// - Parameter asyncImages: `[AsyncImage]` to be displayed
+    /// - Note: This method accepts [PHAsset] out of the box
+    ///
     public init(_ asyncImages: [AsyncImage]) {
         self.asyncImages = asyncImages
-        super.init(rootViewController: hub)
+        super.init(nibName: nil, bundle: nil)
+        viewControllers = [hub]
         setup()
     }
 
@@ -75,16 +120,13 @@ open class MediaEditor: UINavigationController {
         super.init(coder: aDecoder)
     }
 
-    public override func viewDidLoad() {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    open override func viewDidLoad() {
         super.viewDidLoad()
-
-        isEditingPlainUIImages = images.count > 0
-
-        hub.delegate = self
-
-        modalTransitionStyle = .crossDissolve
-        modalPresentationStyle = .fullScreen
-        navigationBar.isHidden = true
+        interactivePopGestureRecognizer?.isEnabled = false
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -99,12 +141,21 @@ open class MediaEditor: UINavigationController {
     }
 
     private func setup() {
+        setupModalStyle()
         setupHub()
         setupForAsync()
         presentIfSingleImageAndCapability()
     }
 
+    private func setupModalStyle() {
+        modalTransitionStyle = .crossDissolve
+        modalPresentationStyle = .fullScreen
+        navigationBar.isHidden = true
+    }
+
     private func setupHub() {
+        hub.delegate = self
+
         hub.onCancel = { [weak self] in
             self?.cancel()
         }
@@ -125,6 +176,8 @@ open class MediaEditor: UINavigationController {
     }
 
     private func setupForAsync() {
+        isEditingPlainUIImages = images.count > 0
+        
         asyncImages.enumerated().forEach { offset, asyncImage in
             if let thumb = asyncImage.thumb {
                 thumbnailAvailable(thumb, offset: offset)
@@ -141,7 +194,7 @@ open class MediaEditor: UINavigationController {
         }
     }
 
-    func presentIfSingleImageAndCapability() {
+    private func presentIfSingleImageAndCapability() {
         guard isSingleImageAndCapability, let image = images[0], let capabilityEntity = Self.capabilities.first else {
             return
         }
