@@ -30,6 +30,14 @@ class MediaEditorTests: XCTestCase {
         expect(mediaEditor.modalPresentationStyle).to(equal(.fullScreen))
     }
 
+    func testDisableInteractivePopGestureRecognizer() {
+        let mediaEditor = MediaEditor(image)
+
+        mediaEditor.viewDidLoad()
+
+        expect(mediaEditor.interactivePopGestureRecognizer?.isEnabled).to(beFalse())
+    }
+
     func testHubDelegate() {
         let mediaEditor = MediaEditor(image)
 
