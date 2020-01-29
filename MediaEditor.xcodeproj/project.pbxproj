@@ -11,6 +11,9 @@
 		8B05570723E1C1D800C10787 /* ImageViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */; };
 		8B05570923E1CF2E00C10787 /* PlainUIImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */; };
 		8B05570B23E1E9F200C10787 /* RemoteImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570A23E1E9F200C10787 /* RemoteImageViewController.swift */; };
+		8B05570D23E1F2F300C10787 /* AdditionalCapabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */; };
+		8B05571223E1F73300C10787 /* BrightnessCapability.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */; };
+		8B05571423E1F74A00C10787 /* BrightnessCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05571323E1F74A00C10787 /* BrightnessCapability.swift */; };
 		8B11A3CF23D8F590000721F5 /* Bundle+mediaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */; };
 		8B12DEC723DFB21A00243CD8 /* MediaEditor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B50469223D7C88200068F66 /* MediaEditor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B50469723D7C88200068F66 /* MediaEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50469523D7C88200068F66 /* MediaEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,6 +91,9 @@
 		8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCollectionCell.swift; sourceTree = "<group>"; };
 		8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainUIImageViewController.swift; sourceTree = "<group>"; };
 		8B05570A23E1E9F200C10787 /* RemoteImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewController.swift; sourceTree = "<group>"; };
+		8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCapabilityViewController.swift; sourceTree = "<group>"; };
+		8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrightnessCapability.storyboard; sourceTree = "<group>"; };
+		8B05571323E1F74A00C10787 /* BrightnessCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessCapability.swift; sourceTree = "<group>"; };
 		8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+mediaEditor.swift"; sourceTree = "<group>"; };
 		8B50469223D7C88200068F66 /* MediaEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B50469523D7C88200068F66 /* MediaEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaEditor.h; sourceTree = "<group>"; };
@@ -154,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B05570E23E1F63A00C10787 /* BrightnessCapability */ = {
+			isa = PBXGroup;
+			children = (
+				8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */,
+				8B05571323E1F74A00C10787 /* BrightnessCapability.swift */,
+			);
+			path = BrightnessCapability;
+			sourceTree = "<group>";
+		};
 		8B50468823D7C88200068F66 = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +213,9 @@
 		8B5046A223D7C9AC00068F66 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				8B05570E23E1F63A00C10787 /* BrightnessCapability */,
 				8B5046A323D7C9AC00068F66 /* AppDelegate.swift */,
+				8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */,
 				8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */,
 				8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */,
 				8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */,
@@ -423,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B05571223E1F73300C10787 /* BrightnessCapability.storyboard in Resources */,
 				8B5046B023D7C9AD00068F66 /* LaunchScreen.storyboard in Resources */,
 				8B5046AD23D7C9AD00068F66 /* Assets.xcassets in Resources */,
 				8B5046AB23D7C9AC00068F66 /* Main.storyboard in Resources */,
@@ -486,6 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B05571423E1F74A00C10787 /* BrightnessCapability.swift in Sources */,
+				8B05570D23E1F2F300C10787 /* AdditionalCapabilityViewController.swift in Sources */,
 				8B05570923E1CF2E00C10787 /* PlainUIImageViewController.swift in Sources */,
 				8B05570723E1C1D800C10787 /* ImageViewCollectionCell.swift in Sources */,
 				8B5046A823D7C9AC00068F66 /* ViewController.swift in Sources */,

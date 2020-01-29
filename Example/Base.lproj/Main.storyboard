@@ -95,6 +95,31 @@
                                             <segue destination="fzC-A3-3x5" kind="show" id="Agb-Sy-Suf"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="fvw-Y7-ilt">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fvw-Y7-ilt" id="ZWM-ON-Ezk">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness capability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOV-vu-Shf">
+                                                    <rect key="frame" x="20" y="11" width="355" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hOV-vu-Shf" firstAttribute="top" secondItem="ZWM-ON-Ezk" secondAttribute="topMargin" id="5mt-A5-Y9f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hOV-vu-Shf" secondAttribute="trailing" id="8r2-EO-LuL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hOV-vu-Shf" secondAttribute="bottom" id="PWL-Ie-KM5"/>
+                                                <constraint firstItem="hOV-vu-Shf" firstAttribute="leading" secondItem="ZWM-ON-Ezk" secondAttribute="leadingMargin" id="yNI-W0-AsE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="pKK-Jt-lAc" kind="show" id="Xds-bW-7ol"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -213,13 +238,13 @@
                                 <rect key="frame" x="10" y="186" width="394" height="578"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="gDz-3V-oqB">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270.00000000000011"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="3E8-qh-VQp"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-ew-wgF">
-                                        <rect key="frame" x="0.0" y="280" width="394.00000000000011" height="270"/>
+                                        <rect key="frame" x="0.0" y="280" width="394" height="270"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="qE5-Gj-aog"/>
                                         </constraints>
@@ -326,6 +351,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBm-SL-6e1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-139" y="116"/>
+        </scene>
+        <!--Additional Capability View Controller-->
+        <scene sceneID="HDP-g2-Gdr">
+            <objects>
+                <viewController id="pKK-Jt-lAc" customClass="AdditionalCapabilityViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6sq-h8-1Cg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3lu-Fg-oiC">
+                                <rect key="frame" x="10" y="317" width="394" height="316"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="mnJ-tt-vKC">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="270" id="IRj-mN-GEb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the image above to edit it. Note that the Media Editor will have an additional capability added." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxf-QX-Jca">
+                                        <rect key="frame" x="0.0" y="280" width="394" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3lu-Fg-oiC" firstAttribute="leading" secondItem="3vh-Jh-Lco" secondAttribute="leading" constant="10" id="RTc-sK-OXJ"/>
+                            <constraint firstItem="3lu-Fg-oiC" firstAttribute="centerY" secondItem="3vh-Jh-Lco" secondAttribute="centerY" id="UiX-46-5FX"/>
+                            <constraint firstItem="3vh-Jh-Lco" firstAttribute="trailing" secondItem="3lu-Fg-oiC" secondAttribute="trailing" constant="10" id="mCb-Up-YPx"/>
+                            <constraint firstItem="3lu-Fg-oiC" firstAttribute="centerX" secondItem="3vh-Jh-Lco" secondAttribute="centerX" id="th9-U3-5Wk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3vh-Jh-Lco"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7E3-G7-BrC"/>
+                    <connections>
+                        <outlet property="imageView" destination="mnJ-tt-vKC" id="y2N-Tw-T50"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clh-ES-5dQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="846"/>
         </scene>
     </scenes>
     <resources>
