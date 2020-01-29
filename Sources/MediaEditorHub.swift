@@ -326,7 +326,7 @@ extension MediaEditorHub: UICollectionViewDelegateFlowLayout {
         if collectionView == imagesCollectionView {
             return CGSize(width: imagesCollectionView.frame.width, height: imagesCollectionView.frame.height)
         } else if collectionView == thumbsCollectionView {
-            return CGSize(width: Constants.thumbHeight, height: Constants.thumbHeight)
+            return numberOfThumbs > 1 ? CGSize(width: Constants.thumbHeight, height: Constants.thumbHeight) : .zero
         } else {
             return CGSize(width: Constants.toolbarHeight, height: Constants.toolbarHeight)
         }

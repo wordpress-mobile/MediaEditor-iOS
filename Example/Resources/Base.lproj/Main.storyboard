@@ -250,13 +250,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="gDz-3V-oqB">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="270.00000000000011"/>
+                                        <rect key="frame" x="0.0" y="28" width="394" height="270"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="3E8-qh-VQp"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-ew-wgF">
-                                        <rect key="frame" x="0.0" y="308" width="394.00000000000011" height="270"/>
+                                        <rect key="frame" x="0.0" y="308" width="394" height="270"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="qE5-Gj-aog"/>
                                         </constraints>
@@ -370,7 +370,7 @@
                                 <rect key="frame" x="10" y="343" width="394" height="316"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="mnJ-tt-vKC">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270.00000000000011"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="IRj-mN-GEb"/>
                                         </constraints>
