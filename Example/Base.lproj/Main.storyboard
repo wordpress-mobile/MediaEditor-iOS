@@ -66,6 +66,9 @@
                                                 <constraint firstItem="OKY-7x-nfq" firstAttribute="leading" secondItem="srh-df-GWq" secondAttribute="leadingMargin" id="tff-mb-wfD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gT1-ue-XNj" kind="show" id="IHZ-8E-maA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="sdu-bR-BgF">
                                         <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
@@ -249,6 +252,65 @@
             </objects>
             <point key="canvasLocation" x="810" y="846"/>
         </scene>
+        <!--Remote Image View Controller-->
+        <scene sceneID="WxC-ql-DgD">
+            <objects>
+                <viewController id="gT1-ue-XNj" customClass="RemoteImageViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q9Z-Dp-Z3m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rRp-WD-l95">
+                                <rect key="frame" x="10" y="354" width="394" height="242"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="St3-yR-5Kf">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="150"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb1" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-S2-ecx">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="150"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb2" translatesAutoresizingMaskIntoConstraints="NO" id="Wab-if-TiD">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="dKT-0E-JQ5"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap one of the images above to edit them" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-lL-Rlg">
+                                        <rect key="frame" x="0.0" y="160" width="394" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In this example, we're showing just the thumbnail. The full image will be downloaded once you tap any capability." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xem-Sz-yhN">
+                                        <rect key="frame" x="0.0" y="188" width="394" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Dpv-TC-thL" firstAttribute="trailing" secondItem="rRp-WD-l95" secondAttribute="trailing" constant="10" id="4uH-3T-j87"/>
+                            <constraint firstItem="rRp-WD-l95" firstAttribute="centerX" secondItem="Dpv-TC-thL" secondAttribute="centerX" id="Yr6-JW-zme"/>
+                            <constraint firstItem="rRp-WD-l95" firstAttribute="leading" secondItem="Dpv-TC-thL" secondAttribute="leading" constant="10" id="gp8-Hd-aL3"/>
+                            <constraint firstItem="rRp-WD-l95" firstAttribute="centerY" secondItem="Dpv-TC-thL" secondAttribute="centerY" id="wCu-RG-sBe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dpv-TC-thL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2pE-8U-8GW"/>
+                    <connections>
+                        <outlet property="firstImageView" destination="mpw-S2-ecx" id="M4g-Aw-X6o"/>
+                        <outlet property="secondImageView" destination="Wab-if-TiD" id="M3s-UM-xcZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fL9-4z-odc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="846"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4s2-3j-gk1">
             <objects>
@@ -269,5 +331,7 @@
     <resources>
         <image name="image" width="1128" height="753"/>
         <image name="image2" width="561" height="375"/>
+        <image name="thumb1" width="150" height="100"/>
+        <image name="thumb2" width="150" height="94"/>
     </resources>
 </document>
