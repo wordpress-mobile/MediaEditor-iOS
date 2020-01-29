@@ -7,14 +7,15 @@ class PlainUIImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         // Add tap gesture in the first image
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
 
         // Add tap gesture in the second image
+        let secondTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         secondImageView.isUserInteractionEnabled = true
-        secondImageView.addGestureRecognizer(tapGestureRecognizer)
+        secondImageView.addGestureRecognizer(secondTapGestureRecognizer)
     }
 
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
