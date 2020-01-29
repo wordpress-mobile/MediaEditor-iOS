@@ -165,8 +165,62 @@
 			children = (
 				8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */,
 				8B05571323E1F74A00C10787 /* BrightnessCapability.swift */,
+				8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */,
 			);
 			path = BrightnessCapability;
+			sourceTree = "<group>";
+		};
+		8B05571523E2377F00C10787 /* Image Editing */ = {
+			isa = PBXGroup;
+			children = (
+				8B05571623E2378F00C10787 /* Device Library */,
+				8B05571723E237A900C10787 /* Remote Image */,
+				8B05571823E237B700C10787 /* Plain UIImage */,
+			);
+			path = "Image Editing";
+			sourceTree = "<group>";
+		};
+		8B05571623E2378F00C10787 /* Device Library */ = {
+			isa = PBXGroup;
+			children = (
+				8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */,
+				8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */,
+			);
+			path = "Device Library";
+			sourceTree = "<group>";
+		};
+		8B05571723E237A900C10787 /* Remote Image */ = {
+			isa = PBXGroup;
+			children = (
+				8B05570A23E1E9F200C10787 /* RemoteImageViewController.swift */,
+			);
+			path = "Remote Image";
+			sourceTree = "<group>";
+		};
+		8B05571823E237B700C10787 /* Plain UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */,
+			);
+			path = "Plain UIImage";
+			sourceTree = "<group>";
+		};
+		8B05571923E237DD00C10787 /* Extending */ = {
+			isa = PBXGroup;
+			children = (
+				8B05570E23E1F63A00C10787 /* BrightnessCapability */,
+			);
+			path = Extending;
+			sourceTree = "<group>";
+		};
+		8B05571B23E2380200C10787 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B5046AC23D7C9AD00068F66 /* Assets.xcassets */,
+				8B5046A923D7C9AC00068F66 /* Main.storyboard */,
+				8B5046AE23D7C9AD00068F66 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		8B50468823D7C88200068F66 = {
@@ -213,17 +267,11 @@
 		8B5046A223D7C9AC00068F66 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				8B05570E23E1F63A00C10787 /* BrightnessCapability */,
+				8B05571523E2377F00C10787 /* Image Editing */,
+				8B05571923E237DD00C10787 /* Extending */,
+				8B05571B23E2380200C10787 /* Resources */,
 				8B5046A323D7C9AC00068F66 /* AppDelegate.swift */,
-				8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */,
-				8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */,
-				8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */,
-				8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */,
-				8B05570A23E1E9F200C10787 /* RemoteImageViewController.swift */,
 				8B5046A723D7C9AC00068F66 /* ViewController.swift */,
-				8B5046A923D7C9AC00068F66 /* Main.storyboard */,
-				8B5046AC23D7C9AD00068F66 /* Assets.xcassets */,
-				8B5046AE23D7C9AD00068F66 /* LaunchScreen.storyboard */,
 				8B5046B123D7C9AD00068F66 /* Info.plist */,
 			);
 			path = Example;
