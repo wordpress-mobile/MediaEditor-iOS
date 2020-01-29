@@ -88,6 +88,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="6ZA-Xz-3aZ" secondAttribute="bottom" id="zot-UG-Ap9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fzC-A3-3x5" kind="show" id="Agb-Sy-Suf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -195,6 +198,57 @@
             </objects>
             <point key="canvasLocation" x="1596" y="116"/>
         </scene>
+        <!--PlainUI Image View Controller-->
+        <scene sceneID="b4e-hX-gs7">
+            <objects>
+                <viewController id="fzC-A3-3x5" customClass="PlainUIImageViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yfC-L8-Mhv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I4U-z8-hf3">
+                                <rect key="frame" x="10" y="186" width="394" height="578"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="gDz-3V-oqB">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270.00000000000011"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="270" id="3E8-qh-VQp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-ew-wgF">
+                                        <rect key="frame" x="0.0" y="280" width="394.00000000000011" height="270"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="270" id="qE5-Gj-aog"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap one of the UIImage above to edit them" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-iy-GUr">
+                                        <rect key="frame" x="0.0" y="560" width="394" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jUw-l2-Jh4" firstAttribute="trailing" secondItem="I4U-z8-hf3" secondAttribute="trailing" constant="10" id="QQg-Ia-MzE"/>
+                            <constraint firstItem="I4U-z8-hf3" firstAttribute="leading" secondItem="jUw-l2-Jh4" secondAttribute="leading" constant="10" id="jqF-43-3Fr"/>
+                            <constraint firstItem="I4U-z8-hf3" firstAttribute="centerX" secondItem="jUw-l2-Jh4" secondAttribute="centerX" id="nBZ-NQ-pgU"/>
+                            <constraint firstItem="I4U-z8-hf3" firstAttribute="centerY" secondItem="jUw-l2-Jh4" secondAttribute="centerY" id="uTG-2w-Fuq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jUw-l2-Jh4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fBX-0d-kum"/>
+                    <connections>
+                        <outlet property="imageView" destination="gDz-3V-oqB" id="6zj-lo-QJJ"/>
+                        <outlet property="secondImageView" destination="Bxw-ew-wgF" id="uBm-g1-YBf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sp3-sy-NBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="846"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4s2-3j-gk1">
             <objects>
@@ -212,4 +266,8 @@
             <point key="canvasLocation" x="-139" y="116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image" width="1128" height="753"/>
+        <image name="image2" width="561" height="375"/>
+    </resources>
 </document>
