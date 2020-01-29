@@ -1,0 +1,8 @@
+0.1.4
+-----
+ 
+0.1.3
+-----
+* Fix crashes in iOS 11 and 12 #4
+* Fix Autoulayout warnings #5
+* Fix swipe left-to-right conflict when cropping #7
