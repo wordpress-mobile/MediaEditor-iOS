@@ -144,6 +144,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="qax-dC-lQr" secondAttribute="trailing" constant="10" id="HAh-zW-I07"/>
                                                 <constraint firstAttribute="bottom" secondItem="qax-dC-lQr" secondAttribute="bottom" constant="10" id="i3E-UX-9JR"/>
+                                                <constraint firstItem="qax-dC-lQr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GfT-sI-87D" secondAttribute="leading" constant="20" symbolic="YES" id="y1g-oc-94I"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -154,7 +155,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Media Editor will be displayed with the latest 10 photos of this device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQd-Kh-mpd">
-                                <rect key="frame" x="10" y="457" width="394" height="36"/>
+                                <rect key="frame" x="0.0" y="457" width="414" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -165,8 +166,8 @@
                             <constraint firstItem="eQd-Kh-mpd" firstAttribute="centerX" secondItem="srG-pi-dbV" secondAttribute="centerX" id="7pB-Ns-cSr"/>
                             <constraint firstItem="dpe-BS-Jlu" firstAttribute="leading" secondItem="srG-pi-dbV" secondAttribute="leading" id="Vys-zQ-Gtj"/>
                             <constraint firstItem="eQd-Kh-mpd" firstAttribute="centerY" secondItem="srG-pi-dbV" secondAttribute="centerY" id="ZGH-cY-xes"/>
-                            <constraint firstItem="eQd-Kh-mpd" firstAttribute="leading" secondItem="srG-pi-dbV" secondAttribute="leading" constant="10" id="aT2-p1-7Ga"/>
-                            <constraint firstItem="eQd-Kh-mpd" firstAttribute="trailing" secondItem="srG-pi-dbV" secondAttribute="trailing" constant="-10" id="kcL-5f-F7X"/>
+                            <constraint firstItem="eQd-Kh-mpd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="srG-pi-dbV" secondAttribute="leading" id="aT2-p1-7Ga"/>
+                            <constraint firstItem="eQd-Kh-mpd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="srG-pi-dbV" secondAttribute="trailing" id="kcL-5f-F7X"/>
                             <constraint firstItem="srG-pi-dbV" firstAttribute="trailing" secondItem="dpe-BS-Jlu" secondAttribute="trailing" id="r7X-QQ-u7W"/>
                             <constraint firstItem="dpe-BS-Jlu" firstAttribute="top" secondItem="srG-pi-dbV" secondAttribute="top" id="sU8-mH-gsX"/>
                             <constraint firstItem="srG-pi-dbV" firstAttribute="bottom" secondItem="dpe-BS-Jlu" secondAttribute="bottom" id="xBr-ky-vdj"/>
