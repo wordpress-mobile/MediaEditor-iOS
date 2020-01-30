@@ -1,5 +1,6 @@
 0.1.4
 -----
+* Adds support to Carthage
  
 0.1.3
 -----
