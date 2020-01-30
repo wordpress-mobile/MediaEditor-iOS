@@ -39,7 +39,7 @@ This will present the MediaEditor and when the user finished it will return all 
 
 Also, `assets` can be a single or an array of: `PHAsset`, `UIImage` or any other entity that conforms to `AsyncImage`.
 
-## Advanced examples
+## Advanced examples in the Example app
 
 You can check advanced examples by running the Example app or going through their code:
 
