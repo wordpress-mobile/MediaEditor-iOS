@@ -31,6 +31,8 @@ class BrightnessCapability: MediaEditorCapability {
 
 }
 
+// MARK: - BrightnessViewController
+
 class BrightnessViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var brightnessSlider: UISlider!
