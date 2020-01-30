@@ -241,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I4U-z8-hf3">
-                                <rect key="frame" x="10" y="212" width="394" height="578"/>
+                                <rect key="frame" x="10" y="242" width="394" height="518"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap one of the UIImage below to edit them" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-iy-GUr">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
@@ -250,15 +250,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="gDz-3V-oqB">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="270"/>
+                                        <rect key="frame" x="0.0" y="28" width="394" height="240.00000000000011"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="270" id="3E8-qh-VQp"/>
+                                            <constraint firstAttribute="height" constant="240" id="3E8-qh-VQp"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="Bxw-ew-wgF">
-                                        <rect key="frame" x="0.0" y="308" width="394" height="270"/>
+                                        <rect key="frame" x="0.0" y="278" width="394.00000000000011" height="240"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="270" id="qE5-Gj-aog"/>
+                                            <constraint firstAttribute="height" constant="240" id="qE5-Gj-aog"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -370,7 +370,7 @@
                                 <rect key="frame" x="10" y="343" width="394" height="316"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="mnJ-tt-vKC">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="270.00000000000011"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="IRj-mN-GEb"/>
                                         </constraints>
