@@ -50,7 +50,7 @@ You can check advanced examples by running the Example app or going through thei
 
 # Requirements
 
-* iOS 11.0 or above
+* iOS 11.0+
 * Swift 5
 
 # Installation
