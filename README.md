@@ -11,7 +11,7 @@ MediaEditor is an extendable library for iOS that allows you to quickly and easi
 # Features
 
 - [x] [`PHAsset`](https://developer.apple.com/documentation/photokit/phasset) support
-- [x] Plain `UIImage` support
+- [x] Editing of Plain `UIImage`
 - [x] Editing of remote images
 - [x] Single media support
 - [x] Multiple media support
