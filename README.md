@@ -20,7 +20,7 @@ MediaEditor is an extendable library for iOS that allows you to quickly and easi
 - [x] Easily extendable
 - [x] Customizable
 
-## Media Editor 101
+## Usage
 
 Using `MediaEditor` is very simple, just give it the media and present from a `ViewController`:
 
