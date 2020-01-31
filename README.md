@@ -78,7 +78,6 @@ github "wordpress-mobile/MediaEditor-iOS"
 
 ### Manual Installation
 
-All the source is located in `Sources/`.
 
 To manual install, copy this folder to your project and follow the steps to [manual install `TOCropViewController`](https://github.com/TimOliver/TOCropViewController/blob/master/README.md#installation) too.
 
