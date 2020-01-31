@@ -95,4 +95,4 @@ WordPress, mobile@automattic.com
 
 ## License
 
-WPMediaPicker is available under the GPL license. See the [LICENSE file](./LICENSE) for more info.
+MediaEditor is available under the GPL license. See the [LICENSE file](./LICENSE) for more info.
