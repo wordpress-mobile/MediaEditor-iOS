@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS.svg?style=svg)](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS) [![Version](https://img.shields.io/cocoapods/v/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![License](https://img.shields.io/cocoapods/l/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![Platform](https://img.shields.io/cocoapods/p/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-Media Editor is an open-source and extendable Swift-library that allows you to add the feature of editing images in your app. You can edit single or multiple images, from the device's library or any other source. It has been designed to feel natural and part of the OS.
+MediaEditor is an extendable library for iOS that allows you to quickly and easily add image editing features to your app. You can edit single or multiple images, from the device's library or any other source. It has been designed to feel natural and part of the OS.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/7040243/73460209-dd767d80-4356-11ea-9a04-dcc6b0b5e233.PNG" width="340">
