@@ -15,7 +15,7 @@ MediaEditor is an extendable library for iOS that allows you to quickly and easi
 - [x] Editing of remote images
 - [x] Single media support
 - [x] Multiple media support
-- [x] Portrait and landscape
+- [x] Editing in both portrait and landscape modes
 - [x] Crop, zoom and rotate capability (thanks to [`TOCropViewController`](https://github.com/TimOliver/TOCropViewController))
 - [x] Easily extendable
 - [x] Customizable
