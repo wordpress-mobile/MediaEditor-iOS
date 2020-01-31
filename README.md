@@ -76,7 +76,7 @@ github "wordpress-mobile/MediaEditor-iOS"
 
 4. Follow the remaining steps on [Getting Started with Carthage](https://github.com/Carthage/Carthage#getting-started) to finish integrating the framework.
 
-### Manual
+### Manual Installation
 
 All the source is located in `Sources/`.
 
