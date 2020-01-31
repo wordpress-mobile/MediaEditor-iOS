@@ -45,9 +45,9 @@ You can initialize the `MediaEditor` with a single or an array of: `PHAsset`, `U
 
 Check the Example app for even more ways to use the MediaEditor:
 
-* Device Library: how to edit media from the device library and output them in a `UICollectionView`
-* Remote Image: how to edit media that is remote, by conforming to the `AsyncImage` protocol and download high-quality images only when needed.
-* Plain UIImage: how to edit plain UIImage
+* Device Library: Edit media from the device library and output them in a `UICollectionView`
+* Remote Image: Edit media that is remotely hosted by conforming to the `AsyncImage` protocol and downloading high-quality images only when needed.
+* Plain UIImage: Editing plain UIImage's
 * Extending the `MediaEditor` capability by adding your own brightness extension
 
 # Requirements
