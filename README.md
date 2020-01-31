@@ -39,7 +39,7 @@ This presents the MediaEditor from the `ViewController` with a callback that is 
 
 You can easily determine if an image has been edited by checking the `isEdited` property of the objects returned in the `images` array.
 
-Also, `assets` can be a single or an array of: `PHAsset`, `UIImage` or any other entity that conforms to `AsyncImage`.
+You can initialize the `MediaEditor` with a single or an array of: `PHAsset`, `UIImage` or any other entity that conforms to `AsyncImage`.
 
 ## More Examples
 
