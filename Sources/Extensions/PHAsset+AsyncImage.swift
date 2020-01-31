@@ -51,6 +51,7 @@ extension PHAsset: AsyncImage {
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
         options.version = .current
+        options.isNetworkAccessAllowed = true
         let requestID = PHImageManager.default().requestImage(for: self, targetSize: CGSize(width: pixelWidth, height: pixelHeight), contentMode: .default, options: options) { image, info in
             guard let image = image else {
                 finishedRetrievingFullImage(nil)
