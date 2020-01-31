@@ -35,7 +35,9 @@ mediaEditor.edit(from: self, onFinishEditing: { images, actions in
 })
 ```
 
-This will present the MediaEditor and when the user finished it will return all the images. You can easily check if the image was changed by checking the `isEdited` property.
+This presents the MediaEditor from the `ViewController` with a callback that is called when the user is finished editing.
+
+You can easily determine if an image has been edited by checking the `isEdited` property of the objects returned in the `images` array.
 
 Also, `assets` can be a single or an array of: `PHAsset`, `UIImage` or any other entity that conforms to `AsyncImage`.
 
