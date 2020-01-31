@@ -41,7 +41,7 @@ Also, `assets` can be a single or an array of: `PHAsset`, `UIImage` or any other
 
 ## More Examples
 
-You can check advanced examples by running the Example app or going through their code:
+Check the Example app for even more ways to use the MediaEditor:
 
 * Device Library: how to edit media from the device library and output them in a `UICollectionView`
 * Remote Image: how to edit media that is remote, by conforming to the `AsyncImage` protocol and download high-quality images only when needed.
