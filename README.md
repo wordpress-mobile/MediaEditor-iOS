@@ -46,7 +46,7 @@ You can check advanced examples by running the Example app or going through thei
 * Device Library: how to edit media from the device library and output them in a `UICollectionView`
 * Remote Image: how to edit media that is remote, by conforming to the `AsyncImage` protocol and download high-quality images only when needed.
 * Plain UIImage: how to edit plain UIImage
-* Extending by adding a Brightness capability: how to add your own brightness capability into the `MediaEditor`
+* Extending the `MediaEditor` capability by adding your own brightness extension
 
 # Requirements
 
