@@ -141,6 +141,8 @@
                         <viewLayoutGuide key="safeArea" id="sGv-Ig-jBp"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="IFy-2Y-4OM" id="ga6-Vo-1tv"/>
+                        <outlet property="doneButton" destination="egE-uW-K1q" id="9o3-hi-RLK"/>
                         <outlet property="filtersCollectionView" destination="ssr-tN-2F7" id="nea-c4-gtr"/>
                         <outlet property="imageView" destination="xoj-Wy-HEs" id="dXa-s3-C5T"/>
                     </connections>

@@ -25,7 +25,21 @@ class MediaEditorFilters: MediaEditorCapability {
     }
 
     func apply(styles: MediaEditorStyles) {
+        guard let viewController = viewController as? MediaEditorFiltersViewController else {
+            return
+        }
 
+        if let doneLabel = styles[.doneLabel] as? String {
+            viewController.doneButton.setTitle(doneLabel, for: .normal)
+        }
+
+        if let cancelLabel = styles[.cancelLabel] as? String {
+            viewController.cancelButton.setTitle(cancelLabel, for: .normal)
+        }
+
+        if let cancelColor = styles[.cancelColor] as? UIColor {
+            viewController.cancelButton.tintColor = cancelColor
+        }
     }
 }
 
@@ -37,6 +51,8 @@ struct MediaEditorFilter {
 class MediaEditorFiltersViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
 
     var image: UIImage!
 
