@@ -63,7 +63,7 @@ class MediaEditorFiltersViewController: UIViewController {
         ]
     }
 
-    let context = CIContext()
+    let context = MediaEditor.ciContext
 
     var onFinishEditing: ((UIImage, [MediaEditorOperation]) -> ())?
 
