@@ -18,7 +18,7 @@ class MediaEditorFilterTests: XCTestCase {
     }
 
     func testApplyStyles() {
-        let mediaEditorFilters = MediaEditorFilters.init(UIImage(), onFinishEditing: { _, _ in }, onCancel: {})
+        let mediaEditorFilters = MediaEditorFilters(UIImage(), onFinishEditing: { _, _ in }, onCancel: {})
         mediaEditorFilters.viewController.loadView()
 
         mediaEditorFilters.apply(styles: [

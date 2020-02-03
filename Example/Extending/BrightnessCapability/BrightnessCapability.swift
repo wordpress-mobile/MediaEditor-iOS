@@ -83,7 +83,7 @@ class BrightnessViewController: UIViewController {
             return
         }
 
-        onFinishEditing?(UIImage.init(cgImage: cgImage), [])
+        onFinishEditing?(UIImage(cgImage: cgImage), [])
     }
 
     // When the slider changes, apply the brightness value
