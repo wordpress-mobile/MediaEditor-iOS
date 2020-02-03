@@ -14,7 +14,7 @@ class MediaEditorFiltersViewController: UIViewController {
     var image: UIImage!
 
     lazy var thumbImage: UIImage = {
-        let size = 64 * UIScreen.main.scale
+        let size = Constant.thumbWidth * UIScreen.main.scale
         return image.fit(size: CGSize(width: size, height: size))
     }()
 
@@ -119,7 +119,15 @@ class MediaEditorFiltersViewController: UIViewController {
     static func initialize() -> MediaEditorFiltersViewController {
         return UIStoryboard(name: "MediaEditorFilters", bundle: Bundle(for: MediaEditorFiltersViewController.self)).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFiltersViewController
     }
+
+    private enum Constant {
+        static var thumbWidth: CGFloat = 64
+        static var filterCellWidth: CGFloat = 71
+        static var filterCellHeight: CGFloat = 93
+    }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension MediaEditorFiltersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -141,6 +149,8 @@ extension MediaEditorFiltersViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension MediaEditorFiltersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (collectionView.cellForItem(at: selectedFilterIndex) as? MediaEditorFilterCell)?.hideBorder()
@@ -150,9 +160,11 @@ extension MediaEditorFiltersViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension MediaEditorFiltersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 71, height: 93)
+        return CGSize(width: Constant.filterCellWidth, height: Constant.filterCellHeight)
     }
 }
 
