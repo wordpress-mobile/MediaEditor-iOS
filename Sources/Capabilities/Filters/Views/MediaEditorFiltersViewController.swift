@@ -92,7 +92,7 @@ class MediaEditorFiltersViewController: UIViewController {
             return
         }
 
-        onFinishEditing?(UIImage.init(cgImage: cgImage), [])
+        onFinishEditing?(UIImage(cgImage: cgImage), [.filter])
     }
 
     func sepiaFilter(_ input: CIImage, intensity: Double) -> CIImage? {
