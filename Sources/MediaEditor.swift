@@ -14,7 +14,7 @@ open class MediaEditor: UINavigationController {
     /// The capabilities do be displayed in the Media Editor. You can add your own capability here.
     public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorFilters.self, MediaEditorCropZoomRotate.self]
 
-    /// A CIContext to be shared among capabilities. If your app already have one, you can assign it here.
+    /// A CIContext to be shared among capabilities. If your app already has one, you can assign it here.
     public static var ciContext = CIContext()
 
     /// The ViewController that shows thumbnails and capabilities
