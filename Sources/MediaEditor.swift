@@ -12,7 +12,7 @@ import UIKit
 */
 open class MediaEditor: UINavigationController {
     /// The capabilities do be displayed in the Media Editor. You can add your own capability here.
-    public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorFilters.self, MediaEditorCropZoomRotate.self]
+    public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorFiltersViewController.self, MediaEditorCropZoomRotate.self]
 
     /// A CIContext to be shared among capabilities. If your app already have one, you can assign it here.
     public static var ciContext = CIContext()
@@ -43,7 +43,7 @@ open class MediaEditor: UINavigationController {
     public private(set) var actions: [MediaEditorOperation] = []
 
     /// Returns which MediaEditorCapability is being displayed.
-    public private(set) var currentCapability: MediaEditorCapability?
+    public private(set) var currentCapability: CapabilityViewController?
 
     /// A Boolean value indicating whether the Media Editor is being used to edit plain UIImages
     public private(set) var isEditingPlainUIImages = false
@@ -252,7 +252,7 @@ open class MediaEditor: UINavigationController {
     private func present(capability capabilityEntity: MediaEditorCapability.Type, with image: UIImage) {
         prepareTransition()
 
-        let capability = capabilityEntity.init(
+        let capability = capabilityEntity.initialize(
             image,
             onFinishEditing: { [weak self] image, actions in
                 self?.finishEditing(image: image, actions: actions)
@@ -264,7 +264,7 @@ open class MediaEditor: UINavigationController {
         capability.apply(styles: styles)
         currentCapability = capability
 
-        pushViewController(capability.viewController, animated: false)
+        pushViewController(capability, animated: false)
     }
 
     private func finishEditing(image: UIImage, actions: [MediaEditorOperation]) {

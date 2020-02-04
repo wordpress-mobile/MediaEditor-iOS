@@ -127,6 +127,34 @@ class MediaEditorFiltersViewController: UIViewController {
     }
 }
 
+extension MediaEditorFiltersViewController: MediaEditorCapability {
+    static var name = "Filters"
+
+    static var icon = UIImage(named: "filters", in: .mediaEditor, compatibleWith: nil)!
+
+    static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
+        let viewController: MediaEditorFiltersViewController = MediaEditorFiltersViewController.initialize()
+        viewController.onFinishEditing = onFinishEditing
+        viewController.onCancel = onCancel
+        viewController.image = image
+        return viewController
+    }
+
+    func apply(styles: MediaEditorStyles) {
+        if let doneLabel = styles[.doneLabel] as? String {
+            doneButton.setTitle(doneLabel, for: .normal)
+        }
+
+        if let cancelLabel = styles[.cancelLabel] as? String {
+            cancelButton.setTitle(cancelLabel, for: .normal)
+        }
+
+        if let cancelColor = styles[.cancelColor] as? UIColor {
+            cancelButton.tintColor = cancelColor
+        }
+    }
+}
+
 // MARK: - UICollectionViewDataSource
 
 extension MediaEditorFiltersViewController: UICollectionViewDataSource {

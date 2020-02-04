@@ -8,7 +8,7 @@ class AdditionalCapabilityViewController: UIViewController {
         super.viewDidLoad()
 
         // Append Brightness to the list of capabilities
-        MediaEditor.capabilities.append(BrightnessCapability.self)
+        MediaEditor.capabilities.append(BrightnessViewController.self)
 
         // Add tap gesture in the image
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))

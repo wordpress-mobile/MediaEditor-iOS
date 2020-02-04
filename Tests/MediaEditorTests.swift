@@ -75,7 +75,7 @@ class MediaEditorTests: XCTestCase {
     func testShowTheCapabilityRightAway() {
         let mediaEditor = MediaEditor(image)
 
-        expect(mediaEditor.visibleViewController).to(equal(mediaEditor.currentCapability?.viewController))
+        expect(mediaEditor.visibleViewController).to(equal((mediaEditor.currentCapability as? MockCapability)))
     }
 
     func testWhenCancelingDismissTheMediaEditor() {
@@ -84,7 +84,7 @@ class MediaEditorTests: XCTestCase {
         let mediaEditor = MediaEditor(image)
         viewController.present(mediaEditor, animated: false)
 
-        mediaEditor.currentCapability?.onCancel()
+        (mediaEditor.currentCapability as? MockCapability)?.onCancel()
 
         expect(viewController.presentedViewController).toEventually(beNil())
     }
@@ -96,17 +96,17 @@ class MediaEditorTests: XCTestCase {
             didCallOnFinishEditing = true
         }
 
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         expect(didCallOnFinishEditing).to(beTrue())
     }
 
     func testWhenFinishEditingKeepRecordOfTheActions() {
         let mediaEditor = MediaEditor(image)
-        mediaEditor.currentCapability?.onFinishEditing(image, [.crop])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.crop])
         mediaEditor.onFinishEditing = { _, _ in }
 
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         expect(mediaEditor.actions).to(equal([.crop, .rotate]))
     }
@@ -118,7 +118,7 @@ class MediaEditorTests: XCTestCase {
             returnedImages = images as! [UIImage]
         }
 
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         expect(returnedImages).to(equal([image]))
     }
@@ -203,8 +203,8 @@ class MediaEditorTests: XCTestCase {
 
         asyncImage.simulate(fullImageHasBeenDownloaded: fullImage)
 
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil())
-        expect(mediaEditor.visibleViewController).to(equal(mediaEditor.currentCapability?.viewController))
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil())
+        expect(mediaEditor.visibleViewController).to(equal((mediaEditor.currentCapability as? MockCapability)))
     }
 
     func testCallCancelOnAsyncImageWhenUserCancel() {
@@ -248,10 +248,10 @@ class MediaEditorTests: XCTestCase {
         mediaEditor.onFinishEditing = { images, _ in
             returnedImages = images
         }
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil()) // Wait capability appear
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil()) // Wait capability appear
 
         // When
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         // Then
         expect(returnedImages.first?.isEdited).to(beTrue())
@@ -296,7 +296,7 @@ class MediaEditorTests: XCTestCase {
 
         let mediaEditor = MediaEditor([whiteImage, blackImage])
 
-        expect(mediaEditor.currentCapability).to(beNil())
+        expect((mediaEditor.currentCapability as? MockCapability)).to(beNil())
         expect(mediaEditor.visibleViewController).to(equal(mediaEditor.hub))
     }
 
@@ -307,8 +307,8 @@ class MediaEditorTests: XCTestCase {
 
         mediaEditor.capabilityTapped(0)
 
-        expect(mediaEditor.currentCapability).toNot(beNil())
-        expect(mediaEditor.visibleViewController).to(equal(mediaEditor.currentCapability?.viewController))
+        expect((mediaEditor.currentCapability as? MockCapability)).toNot(beNil())
+        expect(mediaEditor.visibleViewController).to(equal((mediaEditor.currentCapability as? MockCapability)))
     }
 
     func testCallingOnCancelWhenShowingACapabilityGoesBackToHub() {
@@ -317,9 +317,9 @@ class MediaEditorTests: XCTestCase {
         let mediaEditor = MediaEditor([whiteImage, blackImage])
         mediaEditor.capabilityTapped(0)
 
-        mediaEditor.currentCapability?.onCancel()
+        (mediaEditor.currentCapability as? MockCapability)?.onCancel()
 
-        expect(mediaEditor.currentCapability).to(beNil())
+        expect((mediaEditor.currentCapability as? MockCapability)).to(beNil())
         expect(mediaEditor.visibleViewController).to(equal(mediaEditor.hub))
     }
 
@@ -330,7 +330,7 @@ class MediaEditorTests: XCTestCase {
         let mediaEditor = MediaEditor([whiteImage, blackImage])
         mediaEditor.capabilityTapped(0)
 
-        mediaEditor.currentCapability?.onFinishEditing(editedImage, [.crop])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(editedImage, [.crop])
 
         expect(mediaEditor.images[0]).to(equal(editedImage))
         expect(mediaEditor.hub.availableImages[0]).to(equal(editedImage))
@@ -346,7 +346,7 @@ class MediaEditorTests: XCTestCase {
         viewController.present(mediaEditor, animated: false)
         mediaEditor.capabilityTapped(0)
 
-        mediaEditor.currentCapability?.onCancel()
+        (mediaEditor.currentCapability as? MockCapability)?.onCancel()
 
         expect(mediaEditor.visibleViewController).toEventually(equal(mediaEditor.hub))
     }
@@ -359,7 +359,7 @@ class MediaEditorTests: XCTestCase {
             returnedImages = images as! [UIImage]
         }
         mediaEditor.capabilityTapped(0)
-        mediaEditor.currentCapability?.onFinishEditing(editedImage, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(editedImage, [.rotate])
 
         mediaEditor.hub.doneButton.sendActions(for: .touchUpInside)
 
@@ -393,7 +393,7 @@ class MediaEditorTests: XCTestCase {
 
         let mediaEditor = MediaEditor(asyncImages)
 
-        expect(mediaEditor.currentCapability).to(beNil())
+        expect((mediaEditor.currentCapability as? MockCapability)).to(beNil())
         expect(mediaEditor.visibleViewController).to(equal(mediaEditor.hub))
     }
 
@@ -403,7 +403,7 @@ class MediaEditorTests: XCTestCase {
 
         mediaEditor.capabilityTapped(0)
 
-        expect(mediaEditor.currentCapability).to(beNil())
+        expect((mediaEditor.currentCapability as? MockCapability)).to(beNil())
         expect(mediaEditor.visibleViewController).to(equal(mediaEditor.hub))
     }
 
@@ -426,8 +426,8 @@ class MediaEditorTests: XCTestCase {
 
         firstImage.simulate(fullImageHasBeenDownloaded: fullImage)
 
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil())
-        expect(mediaEditor.visibleViewController).to(equal(mediaEditor.currentCapability?.viewController))
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil())
+        expect(mediaEditor.visibleViewController).to(equal((mediaEditor.currentCapability as? MockCapability)))
     }
 
     func testWhenTheFullImageIsAvailableUpdateTheImageReferences() {
@@ -455,8 +455,8 @@ class MediaEditorTests: XCTestCase {
         mediaEditor.onFinishEditing = { images, _ in
             returnedImages = images
         }
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil()) // Wait capability appear
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil()) // Wait capability appear
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         // When
         mediaEditor.hub.doneButton.sendActions(for: .touchUpInside)
@@ -474,10 +474,10 @@ class MediaEditorTests: XCTestCase {
         mediaEditor.capabilityTapped(0)
         firstImage.simulate(fullImageHasBeenDownloaded: image)
         seconImage.simulate(fullImageHasBeenDownloaded: image)
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil()) // Wait capability appear
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil()) // Wait capability appear
 
         // When
-        mediaEditor.currentCapability?.onFinishEditing(image, [.rotate])
+        (mediaEditor.currentCapability as? MockCapability)?.onFinishEditing(image, [.rotate])
 
         // Then
         expect(mediaEditor.editedImagesIndexes).to(equal([0]))
@@ -496,32 +496,42 @@ class MediaEditorTests: XCTestCase {
         firstImage.simulate(fullImageHasBeenDownloaded: image)
 
         // Then
-        expect(mediaEditor.currentCapability).toEventuallyNot(beNil())
+        expect((mediaEditor.currentCapability as? MockCapability)).toEventuallyNot(beNil())
     }
 
 }
 
-class MockCapability: MediaEditorCapability {
+class MockCapability: UIViewController, MediaEditorCapability {
     static var name = "MockCapability"
 
     static var icon = UIImage()
 
     var applyCalled = false
 
-    var image: UIImage
+    var image: UIImage!
 
     lazy var viewController: UIViewController = {
         return UIViewController()
     }()
 
-    var onFinishEditing: (UIImage, [MediaEditorOperation]) -> ()
+    var onFinishEditing: ((UIImage, [MediaEditorOperation]) -> ())!
 
-    var onCancel: (() -> ())
+    var onCancel: (() -> ())!
 
-    required init(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) {
-        self.image = image
-        self.onFinishEditing = onFinishEditing
-        self.onCancel = onCancel
+    static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
+        let viewController = MockCapability()
+        viewController.image = image
+        viewController.onFinishEditing = onFinishEditing
+        viewController.onCancel = onCancel
+        return viewController
+    }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func apply(styles: MediaEditorStyles) {
