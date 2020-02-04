@@ -33,7 +33,8 @@ extension PHAsset: AsyncImage {
         options.deliveryMode = .opportunistic
         options.version = .current
         options.resizeMode = .fast
-        let requestID = PHImageManager.default().requestImage(for: self, targetSize: CGSize(width: pixelWidth, height: pixelHeight), contentMode: .default, options: options) { image, info in
+        options.isNetworkAccessAllowed = true
+        let requestID = PHImageManager.default().requestImage(for: self, targetSize: UIScreen.main.bounds.size, contentMode: .default, options: options) { image, info in
             guard let image = image else {
                 finishedRetrievingThumbnail(nil)
                 return
