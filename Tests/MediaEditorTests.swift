@@ -501,7 +501,7 @@ class MediaEditorTests: XCTestCase {
 
 }
 
-class MockCapability: UIViewController, MediaEditorCapability {
+class MockCapability: CapabilityViewController {
     static var name = "MockCapability"
 
     static var icon = UIImage()
