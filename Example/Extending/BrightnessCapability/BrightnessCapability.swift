@@ -37,7 +37,7 @@ class BrightnessViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var brightnessSlider: UISlider!
 
-    let context = CIContext()
+    let context = MediaEditor.ciContext
 
     var onFinishEditing: ((UIImage, [MediaEditorOperation]) -> ())?
 
@@ -83,7 +83,7 @@ class BrightnessViewController: UIViewController {
             return
         }
 
-        onFinishEditing?(UIImage.init(cgImage: cgImage), [])
+        onFinishEditing?(UIImage(cgImage: cgImage), [])
     }
 
     // When the slider changes, apply the brightness value

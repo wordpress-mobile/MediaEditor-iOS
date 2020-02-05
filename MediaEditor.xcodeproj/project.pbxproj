@@ -14,6 +14,12 @@
 		8B05570D23E1F2F300C10787 /* AdditionalCapabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */; };
 		8B05571223E1F73300C10787 /* BrightnessCapability.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */; };
 		8B05571423E1F74A00C10787 /* BrightnessCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05571323E1F74A00C10787 /* BrightnessCapability.swift */; };
+		8B062DCA23E8661400488F80 /* MediaEditorFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B062DC823E8661400488F80 /* MediaEditorFilters.swift */; };
+		8B062DCB23E8661400488F80 /* MediaEditorFilters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B062DC923E8661400488F80 /* MediaEditorFilters.storyboard */; };
+		8B062DCD23E8663C00488F80 /* UIImage+withSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B062DCC23E8663C00488F80 /* UIImage+withSize.swift */; };
+		8B062DD023E87A9400488F80 /* MediaEditorFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B062DCF23E87A9400488F80 /* MediaEditorFilterTests.swift */; };
+		8B062DD423E8925100488F80 /* MediaEditorFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B062DD223E8924900488F80 /* MediaEditorFilterCell.swift */; };
+		8B062DD723E8937100488F80 /* MediaEditorFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B062DD523E8936000488F80 /* MediaEditorFiltersViewController.swift */; };
 		8B11A3CF23D8F590000721F5 /* Bundle+mediaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */; };
 		8B12DEC723DFB21A00243CD8 /* MediaEditor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B50469223D7C88200068F66 /* MediaEditor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B50469723D7C88200068F66 /* MediaEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B50469523D7C88200068F66 /* MediaEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -94,6 +100,12 @@
 		8B05570C23E1F2F300C10787 /* AdditionalCapabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCapabilityViewController.swift; sourceTree = "<group>"; };
 		8B05571123E1F73300C10787 /* BrightnessCapability.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrightnessCapability.storyboard; sourceTree = "<group>"; };
 		8B05571323E1F74A00C10787 /* BrightnessCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessCapability.swift; sourceTree = "<group>"; };
+		8B062DC823E8661400488F80 /* MediaEditorFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaEditorFilters.swift; sourceTree = "<group>"; };
+		8B062DC923E8661400488F80 /* MediaEditorFilters.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaEditorFilters.storyboard; sourceTree = "<group>"; };
+		8B062DCC23E8663C00488F80 /* UIImage+withSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+withSize.swift"; sourceTree = "<group>"; };
+		8B062DCF23E87A9400488F80 /* MediaEditorFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditorFilterTests.swift; sourceTree = "<group>"; };
+		8B062DD223E8924900488F80 /* MediaEditorFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditorFilterCell.swift; sourceTree = "<group>"; };
+		8B062DD523E8936000488F80 /* MediaEditorFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditorFiltersViewController.swift; sourceTree = "<group>"; };
 		8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+mediaEditor.swift"; sourceTree = "<group>"; };
 		8B50469223D7C88200068F66 /* MediaEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B50469523D7C88200068F66 /* MediaEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaEditor.h; sourceTree = "<group>"; };
@@ -223,6 +235,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8B062DC723E865F800488F80 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				8B062DD123E8923500488F80 /* Views */,
+				8B062DC923E8661400488F80 /* MediaEditorFilters.storyboard */,
+				8B062DC823E8661400488F80 /* MediaEditorFilters.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		8B062DCE23E87A7900488F80 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				8B062DCF23E87A9400488F80 /* MediaEditorFilterTests.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		8B062DD123E8923500488F80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B062DD223E8924900488F80 /* MediaEditorFilterCell.swift */,
+				8B062DD523E8936000488F80 /* MediaEditorFiltersViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8B50468823D7C88200068F66 = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5046C423D7CE1600068F66 /* UIImage+AsyncImage.swift */,
+				8B062DCC23E8663C00488F80 /* UIImage+withSize.swift */,
 				8B5046C523D7CE1600068F66 /* PHAsset+AsyncImage.swift */,
 				8B11A3CE23D8F590000721F5 /* Bundle+mediaEditor.swift */,
 			);
@@ -300,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5046C923D7CE1600068F66 /* Crop */,
+				8B062DC723E865F800488F80 /* Filters */,
 				8B5046CC23D7CE1600068F66 /* MediaEditorCapability.swift */,
 			);
 			path = Capabilities;
@@ -339,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				8B50472423D7D36C00068F66 /* Crop */,
+				8B062DCE23E87A7900488F80 /* Filters */,
 			);
 			path = Capabilities;
 			sourceTree = "<group>";
@@ -481,6 +523,7 @@
 			files = (
 				8B5046E023D7CE1600068F66 /* MediaEditorHub.storyboard in Resources */,
 				8B5046DF23D7CE1600068F66 /* Media.xcassets in Resources */,
+				8B062DCB23E8661400488F80 /* MediaEditorFilters.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,9 +575,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5046E223D7CE1600068F66 /* MediaEditorThumbCell.swift in Sources */,
+				8B062DD423E8925100488F80 /* MediaEditorFilterCell.swift in Sources */,
 				8B5046D623D7CE1600068F66 /* UIImage+AsyncImage.swift in Sources */,
 				8B5046DE23D7CE1600068F66 /* AsyncImage.swift in Sources */,
 				8B5046DC23D7CE1600068F66 /* MediaEditorCapability.swift in Sources */,
+				8B062DCD23E8663C00488F80 /* UIImage+withSize.swift in Sources */,
+				8B062DD723E8937100488F80 /* MediaEditorFiltersViewController.swift in Sources */,
 				8B5046DB23D7CE1600068F66 /* MediaEditorCropZoomRotate.swift in Sources */,
 				8B5046E323D7CE1600068F66 /* MediaEditorStyle.swift in Sources */,
 				8B5046D823D7CE1600068F66 /* MediaEditor.swift in Sources */,
@@ -543,6 +589,7 @@
 				8B5046E423D7CE1600068F66 /* MediaEditorOperation.swift in Sources */,
 				8B5046DD23D7CE1600068F66 /* MediaEditorHub.swift in Sources */,
 				8B5046E123D7CE1600068F66 /* MediaEditorCapabilityCell.swift in Sources */,
+				8B062DCA23E8661400488F80 /* MediaEditorFilters.swift in Sources */,
 				8B5046D723D7CE1600068F66 /* PHAsset+AsyncImage.swift in Sources */,
 				8B5046D923D7CE1600068F66 /* MediaEditorImageCell.swift in Sources */,
 			);
@@ -572,6 +619,7 @@
 				8B50472723D7D36C00068F66 /* MediaEditorHubTests.swift in Sources */,
 				8B50472923D7D36C00068F66 /* MediaEditorTests.swift in Sources */,
 				8B50472823D7D36C00068F66 /* MediaEditorCropZoomRotateTests.swift in Sources */,
+				8B062DD023E87A9400488F80 /* MediaEditorFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
