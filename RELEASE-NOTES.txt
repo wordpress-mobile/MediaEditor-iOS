@@ -1,7 +1,8 @@
 0.1.4
 -----
 * Adds support to Carthage
- 
+* Changes the Capability API
+
 0.1.3
 -----
 * Fix crashes in iOS 11 and 12 #4
