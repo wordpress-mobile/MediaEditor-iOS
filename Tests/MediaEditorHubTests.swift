@@ -102,6 +102,7 @@ class MediaEditorHubTests: XCTestCase {
         let hub: MediaEditorHub = MediaEditorHub.initialize()
         hub.availableThumbs = [0: UIImage(), 1: UIImage()]
         hub.loadViewIfNeeded()
+        hub.imagesCollectionView.reloadData()
         hub.loadingImage(at: 0)
 
         hub.collectionView(hub.thumbsCollectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
@@ -113,6 +114,7 @@ class MediaEditorHubTests: XCTestCase {
         let hub: MediaEditorHub = MediaEditorHub.initialize()
         hub.availableThumbs = [0: UIImage(), 1: UIImage()]
         hub.loadViewIfNeeded()
+        hub.imagesCollectionView.reloadData()
         hub.loadingImage(at: 1)
         hub.loadingImage(at: 0)
 

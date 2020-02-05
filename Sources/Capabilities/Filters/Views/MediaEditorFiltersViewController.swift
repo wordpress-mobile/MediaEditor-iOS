@@ -117,7 +117,10 @@ class MediaEditorFiltersViewController: UIViewController {
     }
 
     static func initialize() -> MediaEditorFiltersViewController {
-        return UIStoryboard(name: "MediaEditorFilters", bundle: Bundle(for: MediaEditorFiltersViewController.self)).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFiltersViewController
+        return UIStoryboard(
+            name: "MediaEditorFilters",
+            bundle: Bundle(for: MediaEditorFiltersViewController.self)
+        ).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFiltersViewController
     }
 
     private enum Constant {

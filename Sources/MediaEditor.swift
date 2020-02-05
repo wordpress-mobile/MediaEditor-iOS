@@ -11,10 +11,10 @@ import UIKit
  And by being a ViewController, this allows it to be custom presented.
 */
 open class MediaEditor: UINavigationController {
-    /// The capabilities do be displayed in the Media Editor. You can add your own capability here.
+    /// The capabilities are displayed in the Media Editor. You can add your own capabilities here.
     public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorFiltersViewController.self, MediaEditorCropZoomRotate.self]
 
-    /// A CIContext to be shared among capabilities. If your app already have one, you can assign it here.
+    /// A CIContext to be shared among capabilities. If your app already has one, you can assign it here.
     public static var ciContext = CIContext()
 
     /// The ViewController that shows thumbnails and capabilities
@@ -180,7 +180,7 @@ open class MediaEditor: UINavigationController {
 
     private func setupForAsync() {
         isEditingPlainUIImages = images.count > 0
-        
+
         asyncImages.enumerated().forEach { offset, asyncImage in
             if let thumb = asyncImage.thumb {
                 thumbnailAvailable(thumb, offset: offset)
