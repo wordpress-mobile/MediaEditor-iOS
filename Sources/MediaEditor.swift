@@ -261,6 +261,7 @@ open class MediaEditor: UINavigationController {
                 self?.cancel()
         }
         )
+        capability.loadViewIfNeeded()
         capability.apply(styles: styles)
         currentCapability = capability
 
