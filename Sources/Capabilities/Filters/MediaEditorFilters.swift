@@ -5,7 +5,7 @@ struct MediaEditorFilter {
     let ciFilterName: String
 }
 
-class MediaEditorFiltersViewController: UIViewController {
+class MediaEditorFilters: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -116,11 +116,11 @@ class MediaEditorFiltersViewController: UIViewController {
         return UIImage(ciImage: outputImage)
     }
 
-    static func initialize() -> MediaEditorFiltersViewController {
+    static func initialize() -> MediaEditorFilters {
         return UIStoryboard(
             name: "MediaEditorFilters",
-            bundle: Bundle(for: MediaEditorFiltersViewController.self)
-        ).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFiltersViewController
+            bundle: Bundle(for: MediaEditorFilters.self)
+        ).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFilters
     }
 
     private enum Constant {
@@ -130,13 +130,13 @@ class MediaEditorFiltersViewController: UIViewController {
     }
 }
 
-extension MediaEditorFiltersViewController: MediaEditorCapability {
+extension MediaEditorFilters: MediaEditorCapability {
     static var name = "Filters"
 
     static var icon = UIImage(named: "filters", in: .mediaEditor, compatibleWith: nil)!
 
     static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
-        let viewController: MediaEditorFiltersViewController = MediaEditorFiltersViewController.initialize()
+        let viewController: MediaEditorFilters = MediaEditorFilters.initialize()
         viewController.onFinishEditing = onFinishEditing
         viewController.onCancel = onCancel
         viewController.image = image
@@ -160,7 +160,7 @@ extension MediaEditorFiltersViewController: MediaEditorCapability {
 
 // MARK: - UICollectionViewDataSource
 
-extension MediaEditorFiltersViewController: UICollectionViewDataSource {
+extension MediaEditorFilters: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filters.count
     }
@@ -182,7 +182,7 @@ extension MediaEditorFiltersViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 
-extension MediaEditorFiltersViewController: UICollectionViewDelegate {
+extension MediaEditorFilters: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (collectionView.cellForItem(at: selectedFilterIndex) as? MediaEditorFilterCell)?.hideBorder()
         (collectionView.cellForItem(at: indexPath) as? MediaEditorFilterCell)?.showBorder()
@@ -193,7 +193,7 @@ extension MediaEditorFiltersViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension MediaEditorFiltersViewController: UICollectionViewDelegateFlowLayout {
+extension MediaEditorFilters: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constant.filterCellWidth, height: Constant.filterCellHeight)
     }
