@@ -43,7 +43,7 @@ open class MediaEditor: UINavigationController {
     public private(set) var actions: [MediaEditorOperation] = []
 
     /// Returns which MediaEditorCapability is being displayed.
-    public private(set) var currentCapability: MediaEditorCapability?
+    public private(set) var currentCapability: CapabilityViewController?
 
     /// A Boolean value indicating whether the Media Editor is being used to edit plain UIImages
     public private(set) var isEditingPlainUIImages = false
@@ -180,7 +180,7 @@ open class MediaEditor: UINavigationController {
 
     private func setupForAsync() {
         isEditingPlainUIImages = images.count > 0
-        
+
         asyncImages.enumerated().forEach { offset, asyncImage in
             if let thumb = asyncImage.thumb {
                 thumbnailAvailable(thumb, offset: offset)
@@ -252,7 +252,7 @@ open class MediaEditor: UINavigationController {
     private func present(capability capabilityEntity: MediaEditorCapability.Type, with image: UIImage) {
         prepareTransition()
 
-        let capability = capabilityEntity.init(
+        let capability = capabilityEntity.initialize(
             image,
             onFinishEditing: { [weak self] image, actions in
                 self?.finishEditing(image: image, actions: actions)
@@ -264,7 +264,7 @@ open class MediaEditor: UINavigationController {
         capability.apply(styles: styles)
         currentCapability = capability
 
-        pushViewController(capability.viewController, animated: false)
+        pushViewController(capability, animated: false)
     }
 
     private func finishEditing(image: UIImage, actions: [MediaEditorOperation]) {

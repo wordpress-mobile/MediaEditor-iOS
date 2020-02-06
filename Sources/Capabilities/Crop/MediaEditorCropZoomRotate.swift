@@ -1,81 +1,64 @@
 import UIKit
 import TOCropViewController
 
-class MediaEditorCropZoomRotate: NSObject, MediaEditorCapability {
-    static var name = "Crop, Zoom, Rotate"
+typealias MediaEditorCropZoomRotate = TOCropViewController
 
-    static var icon = UIImage(named: "gridicons-crop", in: .mediaEditor, compatibleWith: nil)!
+extension TOCropViewController: MediaEditorCapability {
+    public static var name = "Crop, Zoom, Rotate"
 
-    var image: UIImage
+    public static var icon = UIImage(named: "gridicons-crop", in: .mediaEditor, compatibleWith: nil)!
 
-    var onFinishEditing: (UIImage, [MediaEditorOperation]) -> ()
-
-    var onCancel: (() -> ())
-
-    lazy var viewController: UIViewController = {
+    public static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
         let cropViewController = TOCropViewController(image: image)
+
+        weak var toCrop = cropViewController
 
         cropViewController.hidesNavigationBar = false
 
-        cropViewController.delegate = self
-
-        return cropViewController
-    }()
-
-    required init(_ image: UIImage,
-                  onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (),
-                  onCancel: @escaping () -> ()) {
-        self.image = image
-        self.onFinishEditing = onFinishEditing
-        self.onCancel = onCancel
-    }
-
-    func apply(styles: MediaEditorStyles) {
-        guard let viewController = viewController as? TOCropViewController else {
-            return
+        cropViewController.onDidCropToRect = { image, _, _ in
+            onFinishEditing(image, toCrop?.actions ?? [])
         }
 
+        cropViewController.onDidFinishCancelled = { _ in
+            onCancel()
+        }
+
+        return cropViewController
+    }
+
+    public func apply(styles: MediaEditorStyles) {
         if let doneLabel = styles[.doneLabel] as? String {
-            viewController.toolbar.doneTextButton.setTitle(doneLabel, for: .normal)
+            toolbar.doneTextButton.setTitle(doneLabel, for: .normal)
         }
 
         if let cancelLabel = styles[.cancelLabel] as? String {
-            viewController.toolbar.cancelTextButton.setTitle(cancelLabel, for: .normal)
+            toolbar.cancelTextButton.setTitle(cancelLabel, for: .normal)
         }
 
         if let cancelColor = styles[.cancelColor] as? UIColor {
-            viewController.toolbar.cancelTextButton.tintColor = cancelColor
-            viewController.toolbar.cancelIconButton.tintColor = cancelColor
+            toolbar.cancelTextButton.tintColor = cancelColor
+            toolbar.cancelIconButton.tintColor = cancelColor
         }
 
         if let resetIcon = styles[.resetIcon] as? UIImage {
-            viewController.toolbar.resetButton.setImage(resetIcon, for: .normal)
+            toolbar.resetButton.setImage(resetIcon, for: .normal)
         }
 
         if let doneIcon = styles[.doneIcon] as? UIImage {
-            viewController.toolbar.doneIconButton.setImage(doneIcon, for: .normal)
+            toolbar.doneIconButton.setImage(doneIcon, for: .normal)
         }
 
         if let cancelIcon = styles[.cancelIcon] as? UIImage {
-            viewController.toolbar.cancelIconButton.setImage(cancelIcon, for: .normal)
+            toolbar.cancelIconButton.setImage(cancelIcon, for: .normal)
         }
 
         if let rotateClockwiseIcon = styles[.rotateClockwiseIcon] as? UIImage {
-            viewController.toolbar.rotateClockwiseButton?.setImage(rotateClockwiseIcon, for: .normal)
+            toolbar.rotateClockwiseButton?.setImage(rotateClockwiseIcon, for: .normal)
         }
 
         if let rotateCounterclockwiseButtonHidden = styles[.rotateCounterclockwiseButtonHidden] as? Bool {
-            viewController.toolbar.rotateCounterclockwiseButtonHidden = rotateCounterclockwiseButtonHidden
+            toolbar.rotateCounterclockwiseButtonHidden = rotateCounterclockwiseButtonHidden
         }
     }
-}
 
-extension MediaEditorCropZoomRotate: TOCropViewControllerDelegate {
-    func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
-        onCancel()
-    }
-
-    func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
-        onFinishEditing(image, cropViewController.actions)
-    }
 }

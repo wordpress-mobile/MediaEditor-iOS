@@ -1,36 +1,6 @@
 import UIKit
 import MediaEditor
 
-class BrightnessCapability: MediaEditorCapability {
-    static var name = "Brightness"
-
-    static var icon = UIImage(named: "ink")!
-
-    var image: UIImage
-
-    var viewController: UIViewController
-
-    var onFinishEditing: (UIImage, [MediaEditorOperation]) -> ()
-
-    var onCancel: (() -> ())
-
-    required init(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) {
-        self.image = image
-        self.onFinishEditing = onFinishEditing
-        self.onCancel = onCancel
-        let viewController = BrightnessViewController.fromStoryboard()
-        self.viewController = viewController
-        viewController.onFinishEditing = onFinishEditing
-        viewController.onCancel = onCancel
-        viewController.image = image
-    }
-
-    func apply(styles: MediaEditorStyles) {
-        // Apply styles here
-    }
-
-}
-
 // MARK: - BrightnessViewController
 
 class BrightnessViewController: UIViewController {
@@ -65,7 +35,7 @@ class BrightnessViewController: UIViewController {
         imageView.image = image
     }
 
-    
+
     @IBAction func cancel(_ sender: Any) {
         onCancel?()
     }
@@ -97,5 +67,23 @@ class BrightnessViewController: UIViewController {
     // Load it from storyboard
     static func fromStoryboard() -> BrightnessViewController {
         return UIStoryboard(name: "BrightnessCapability", bundle: .main).instantiateViewController(withIdentifier: "brightnessViewController") as! BrightnessViewController
+    }
+}
+
+extension BrightnessViewController: MediaEditorCapability {
+    static var name = "Brightness"
+
+    static var icon = UIImage(named: "ink")!
+
+    static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
+        let viewController = BrightnessViewController.fromStoryboard()
+        viewController.onFinishEditing = onFinishEditing
+        viewController.onCancel = onCancel
+        viewController.image = image
+        return viewController
+    }
+
+    func apply(styles: MediaEditorStyles) {
+        // Apply styles here
     }
 }

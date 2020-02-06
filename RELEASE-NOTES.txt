@@ -3,6 +3,7 @@
 * Adds support to Carthage
 * Fix the support to PHAssets saved in iCloud
 * Added Filters Capability
+* Changes the Capability API
 
 0.1.3
 -----
