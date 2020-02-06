@@ -1,0 +1,12 @@
+1.0.0
+-----
+* Adds support to Carthage
+* Fix the support to PHAssets saved in iCloud
+* Added Filters Capability
+* Changes the Capability API
+
+0.1.3
+-----
+* Fix crashes in iOS 11 and 12 #4
+* Fix Autoulayout warnings #5
+* Fix swipe left-to-right conflict when cropping #7
