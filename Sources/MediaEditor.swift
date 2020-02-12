@@ -18,7 +18,7 @@ open class MediaEditor: UINavigationController {
     public static var ciContext = CIContext()
 
     /// The ViewController that shows thumbnails and capabilities
-    var hub: MediaEditorHub = {
+    public var hub: MediaEditorHub = {
         let hub: MediaEditorHub = MediaEditorHub.initialize()
         hub.loadViewIfNeeded()
         return hub

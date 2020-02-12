@@ -5,7 +5,7 @@
 MediaEditor is an extendable library for iOS that allows you to quickly and easily add image editing features to your app. You can edit single or multiple images, from the device's library or any other source. It has been designed to feel natural and part of the OS.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/7040243/73460209-dd767d80-4356-11ea-9a04-dcc6b0b5e233.PNG" width="340">
+<img src="https://user-images.githubusercontent.com/7040243/74174047-0548c980-4c12-11ea-8cac-98ea739e8702.PNG" width="340">
 </p>
 
 # Features
