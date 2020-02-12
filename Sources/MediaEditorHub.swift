@@ -1,6 +1,6 @@
 import UIKit
 
-class MediaEditorHub: UIViewController {
+public class MediaEditorHub: UIViewController {
 
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelIconButton: UIButton!
@@ -59,7 +59,7 @@ class MediaEditorHub: UIViewController {
 
     private var hubDidAppeared = false
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         thumbsCollectionView.dataSource = self
         thumbsCollectionView.delegate = self
@@ -71,7 +71,7 @@ class MediaEditorHub: UIViewController {
 
     /// Select the last asset every time the view layout it's subviews until the hub appears.
     /// This is needed because of some layout recalculations that happens.
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         if !hubDidAppeared {
@@ -79,17 +79,17 @@ class MediaEditorHub: UIViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         hubDidAppeared = true
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         reloadImagesAndReposition()
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
         coordinator.animate(alongsideTransition: { _ in
@@ -268,11 +268,11 @@ class MediaEditorHub: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension MediaEditorHub: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView == capabilitiesCollectionView ? capabilities.count : numberOfThumbs
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == thumbsCollectionView {
             return cellForThumbsCollectionView(cellForItemAt: indexPath)
         } else if collectionView == imagesCollectionView {
@@ -322,7 +322,7 @@ extension MediaEditorHub: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension MediaEditorHub: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == imagesCollectionView {
             return CGSize(width: imagesCollectionView.frame.width, height: imagesCollectionView.frame.height)
         } else if collectionView == thumbsCollectionView {
@@ -336,7 +336,7 @@ extension MediaEditorHub: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 
 extension MediaEditorHub: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == thumbsCollectionView {
             selectedThumbIndex = indexPath.row
             imagesCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
@@ -345,7 +345,7 @@ extension MediaEditorHub: UICollectionViewDelegate {
         }
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView == imagesCollectionView, isUserScrolling else {
             return
         }
@@ -356,7 +356,7 @@ extension MediaEditorHub: UICollectionViewDelegate {
         selectedThumbIndex = imageIndexBasedOnScroll
     }
 
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         guard scrollView == imagesCollectionView else {
             return
         }
@@ -364,7 +364,7 @@ extension MediaEditorHub: UICollectionViewDelegate {
         isUserScrolling = true
     }
 
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         guard scrollView == imagesCollectionView else {
             return
         }

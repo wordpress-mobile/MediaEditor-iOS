@@ -1,3 +1,7 @@
+1.0.1
+-----
+* Expose the Hub
+
 1.0.0
 -----
 * Adds support to Carthage
