@@ -2,15 +2,15 @@ import UIKit
 
 public class MediaEditorHub: UIViewController {
 
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var cancelIconButton: UIButton!
-    @IBOutlet weak var activityIndicatorView: UIVisualEffectView!
-    @IBOutlet weak var activityIndicatorLabel: UILabel!
-    @IBOutlet weak var mainStackView: UIStackView!
-    @IBOutlet weak var thumbsCollectionView: UICollectionView!
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
-    @IBOutlet weak var capabilitiesCollectionView: UICollectionView!
-    @IBOutlet weak var toolbarHeight: NSLayoutConstraint!
+    @IBOutlet public weak var doneButton: UIButton!
+    @IBOutlet public weak var cancelIconButton: UIButton!
+    @IBOutlet public weak var activityIndicatorView: UIVisualEffectView!
+    @IBOutlet public weak var activityIndicatorLabel: UILabel!
+    @IBOutlet public weak var mainStackView: UIStackView!
+    @IBOutlet public weak var thumbsCollectionView: UICollectionView!
+    @IBOutlet public weak var imagesCollectionView: UICollectionView!
+    @IBOutlet public weak var capabilitiesCollectionView: UICollectionView!
+    @IBOutlet public weak var toolbarHeight: NSLayoutConstraint!
 
     weak var delegate: MediaEditorHubDelegate?
 
