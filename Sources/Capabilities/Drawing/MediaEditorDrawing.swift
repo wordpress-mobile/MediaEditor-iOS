@@ -2,11 +2,10 @@ import UIKit
 import PencilKit
 
 @available(iOS 13.0, *)
-class MediaEditorDrawing: UIViewController, PKToolPickerObserver {
-    @IBOutlet weak var imageView: UIImageView!
+class MediaEditorDrawing: UIViewController {
+    @IBOutlet weak var annotationView: MediaEditorAnnotationView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var canvasView: PKCanvasView!
 
     var image: UIImage!
 
@@ -26,27 +25,17 @@ class MediaEditorDrawing: UIViewController, PKToolPickerObserver {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = image
-
-        canvasView.backgroundColor = .clear
-        canvasView.isOpaque = false
-
-        // Ensure ink remains the same color regardless of light / dark mode
-        canvasView.overrideUserInterfaceStyle = .light
+        annotationView.image = image
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Based on Apple's sample PencilKit code from WWDC 2019
+        // Based on Apple's sample PencilKit code from WWDC 2019: https://developer.apple.com/documentation/pencilkit/drawing_with_pencilkit
         // Set up the tool picker, using the window of our parent because our view has not
         // been added to a window yet.
-        if let window = parent?.view.window, let toolPicker = PKToolPicker.shared(for: window) {
-            toolPicker.setVisible(true, forFirstResponder: canvasView)
-            toolPicker.addObserver(canvasView)
-            toolPicker.addObserver(self)
-
-            canvasView.becomeFirstResponder()
+        if let window = parent?.view.window {
+            annotationView.showTools(in: window)
         }
     }
 
@@ -57,7 +46,10 @@ class MediaEditorDrawing: UIViewController, PKToolPickerObserver {
     }
 
     @IBAction func done(_ sender: Any) {
-        let image = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
+        guard let image = annotationView.image else {
+            onCancel?()
+            return
+        }
 
         onFinishEditing?(image, [.other])
     }

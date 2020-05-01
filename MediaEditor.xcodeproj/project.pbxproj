@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17002A9D245C27400021216C /* MediaEditorDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17002A9C245C27400021216C /* MediaEditorDrawing.storyboard */; };
+		17002A9F245C54160021216C /* MediaEditorAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17002A9E245C54150021216C /* MediaEditorAnnotationView.swift */; };
 		17DBA238245B1507006CD67F /* MediaEditorDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DBA237245B1507006CD67F /* MediaEditorDrawing.swift */; };
 		8B05570523E1BF5900C10787 /* DeviceLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */; };
 		8B05570723E1C1D800C10787 /* ImageViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		17002A9C245C27400021216C /* MediaEditorDrawing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaEditorDrawing.storyboard; sourceTree = "<group>"; };
+		17002A9E245C54150021216C /* MediaEditorAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditorAnnotationView.swift; sourceTree = "<group>"; };
 		17DBA237245B1507006CD67F /* MediaEditorDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditorDrawing.swift; sourceTree = "<group>"; };
 		8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLibraryViewController.swift; sourceTree = "<group>"; };
 		8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCollectionCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				17002A9C245C27400021216C /* MediaEditorDrawing.storyboard */,
 				17DBA237245B1507006CD67F /* MediaEditorDrawing.swift */,
+				17002A9E245C54150021216C /* MediaEditorAnnotationView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				8B5046D623D7CE1600068F66 /* UIImage+AsyncImage.swift in Sources */,
 				8B5046DE23D7CE1600068F66 /* AsyncImage.swift in Sources */,
 				8B5046DC23D7CE1600068F66 /* MediaEditorCapability.swift in Sources */,
+				17002A9F245C54160021216C /* MediaEditorAnnotationView.swift in Sources */,
 				8B062DCD23E8663C00488F80 /* UIImage+withSize.swift in Sources */,
 				8B062DD723E8937100488F80 /* MediaEditorFilters.swift in Sources */,
 				8B5046DB23D7CE1600068F66 /* MediaEditorCropZoomRotate.swift in Sources */,
