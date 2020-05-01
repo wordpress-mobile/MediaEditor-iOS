@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFy-2Y-4OM">
-                                                <rect key="frame" x="0.0" y="0.0" width="101" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="FTj-uO-CKq"/>
                                                 </constraints>
@@ -38,9 +38,39 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYk-87-uUE">
-                                                <rect key="frame" x="111" y="0.0" width="240" height="44"/>
+                                                <rect key="frame" x="166" y="0.0" width="87" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CC-yh-Bpg">
+                                                <rect key="frame" x="263" y="0.0" width="88" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2za-iY-tzl" userLabel="Undo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="44" id="hXI-rt-vMV"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" image="arrow.uturn.left.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="undo:" destination="Q24-RM-atn" eventType="touchUpInside" id="WYI-K0-86S"/>
+                                                            <action selector="undoButton:" destination="20a-Cc-wle" eventType="touchUpInside" id="GMj-8S-3KN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTn-yN-3Qf" userLabel="Redo">
+                                                        <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="44" id="cbq-JK-sbr"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" image="arrow.uturn.right.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="redo:" destination="Q24-RM-atn" eventType="touchUpInside" id="aFY-lG-ndQ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egE-uW-K1q">
                                                 <rect key="frame" x="361" y="0.0" width="53" height="44"/>
                                                 <constraints>
@@ -65,6 +95,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-cb-ysj" userLabel="Annotation View" customClass="MediaEditorAnnotationView" customModule="MediaEditor" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="0.0" width="394" height="764"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="redoButton" destination="NTn-yN-3Qf" id="dR7-OO-2sV"/>
+                                                    <outlet property="undoButton" destination="2za-iY-tzl" id="awU-5u-n19"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,8 +128,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q24-RM-atn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="20a-Cc-wle" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="73.913043478260875" y="-76.339285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.uturn.left.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.uturn.right.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

@@ -11,6 +11,9 @@ class MediaEditorAnnotationView: UIView {
     private let imageView = UIImageView()
     private let canvasView = PKCanvasView()
 
+    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var redoButton: UIButton!
+
     var image: UIImage? {
         set {
             imageView.image = newValue
@@ -59,6 +62,15 @@ class MediaEditorAnnotationView: UIView {
 
         // Ensure ink remains the same color regardless of light / dark mode
         canvasView.overrideUserInterfaceStyle = .light
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSUndoManagerCheckpoint, object: canvasView.undoManager, queue: nil) { [weak self] _ in
+            self?.updateUndoRedoButtons()
+        }
+    }
+
+    private func updateUndoRedoButtons() {
+        undoButton.isEnabled = canvasView.undoManager?.canUndo ?? false
+        redoButton.isEnabled = canvasView.undoManager?.canRedo ?? false
     }
 
     // MARK: - View Layout
@@ -92,7 +104,6 @@ class MediaEditorAnnotationView: UIView {
         if let toolPicker = PKToolPicker.shared(for: window) {
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)
-            toolPicker.addObserver(self)
 
             canvasView.becomeFirstResponder()
         }
@@ -119,6 +130,3 @@ class MediaEditorAnnotationView: UIView {
         return renderedImage
     }
 }
-
-@available(iOS 13.0, *)
-extension MediaEditorAnnotationView: PKToolPickerObserver {}
