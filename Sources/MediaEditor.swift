@@ -12,7 +12,15 @@ import UIKit
 */
 open class MediaEditor: UINavigationController {
     /// The capabilities are displayed in the Media Editor. You can add your own capabilities here.
-    public static var capabilities: [MediaEditorCapability.Type] = [MediaEditorFilters.self, MediaEditorCropZoomRotate.self]
+    public static var capabilities: [MediaEditorCapability.Type] = {
+        var capabilities: [MediaEditorCapability.Type] = [MediaEditorFilters.self, MediaEditorCropZoomRotate.self]
+
+        if #available(iOS 13.0, *) {
+            capabilities.insert(MediaEditorDrawing.self, at: 0)
+        }
+
+        return capabilities
+    }()
 
     /// A CIContext to be shared among capabilities. If your app already has one, you can assign it here.
     public static var ciContext = CIContext()
