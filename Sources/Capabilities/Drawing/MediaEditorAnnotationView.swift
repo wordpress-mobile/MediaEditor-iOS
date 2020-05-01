@@ -35,6 +35,12 @@ class MediaEditorAnnotationView: UIView {
         commonInit()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.NSUndoManagerCheckpoint,
+                                                  object: canvasView.undoManager)
+    }
+
     private func commonInit() {
         configureImageView()
         configureCanvasView()
@@ -104,8 +110,10 @@ class MediaEditorAnnotationView: UIView {
         if let toolPicker = PKToolPicker.shared(for: window) {
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)
+            toolPicker.addObserver(self)
 
             canvasView.becomeFirstResponder()
+            updateLayout(for: toolPicker)
         }
     }
 
@@ -115,6 +123,16 @@ class MediaEditorAnnotationView: UIView {
     private var renderedImage: UIImage? {
         guard let imageViewImage = imageView.image else {
             return nil
+        }
+
+        guard canvasView.bounds != .zero else {
+            return imageViewImage
+        }
+
+        // Check we actually have some changes
+        if let undoManager = canvasView.undoManager,
+            undoManager.canUndo == false {
+            return imageViewImage
         }
 
         let targetSize = imageViewImage.size
@@ -128,5 +146,45 @@ class MediaEditorAnnotationView: UIView {
         }
 
         return renderedImage
+    }
+}
+
+// Note: Code in this extension reused from WWDC 2019 PencilKit example
+//
+@available(iOS 13.0, *)
+extension MediaEditorAnnotationView: PKToolPickerObserver {
+    // MARK: Tool Picker Observer
+
+    /// Delegate method: Note that the tool picker has changed which part of the canvas view
+    /// it obscures, if any.
+    internal func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
+        updateLayout(for: toolPicker)
+    }
+
+    /// Delegate method: Note that the tool picker has become visible or hidden.
+    internal func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
+        updateLayout(for: toolPicker)
+    }
+
+    /// Helper method to adjust the canvas view size when the tool picker changes which part
+    /// of the canvas view it obscures, if any.
+    ///
+    /// Note that the tool picker floats over the canvas in regular size classes, but docks to
+    /// the canvas in compact size classes, occupying a part of the screen that the canvas
+    /// could otherwise use.
+    fileprivate func updateLayout(for toolPicker: PKToolPicker) {
+        let obscuredFrame = toolPicker.frameObscured(in: self)
+
+        if obscuredFrame.isNull {
+            canvasView.contentInset = .zero
+            undoButton.isHidden = true
+            redoButton.isHidden = true
+        } else {
+            canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bounds.maxY - obscuredFrame.minY, right: 0)
+            undoButton.isHidden = false
+            redoButton.isHidden = false
+        }
+
+        canvasView.scrollIndicatorInsets = canvasView.contentInset
     }
 }
