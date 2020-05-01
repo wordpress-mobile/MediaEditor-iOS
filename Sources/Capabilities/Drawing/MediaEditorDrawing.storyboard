@@ -95,10 +95,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-cb-ysj" userLabel="Annotation View" customClass="MediaEditorAnnotationView" customModule="MediaEditor" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="0.0" width="394" height="764"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <outlet property="redoButton" destination="NTn-yN-3Qf" id="dR7-OO-2sV"/>
-                                                    <outlet property="undoButton" destination="2za-iY-tzl" id="awU-5u-n19"/>
-                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,6 +121,8 @@
                         <outlet property="annotationView" destination="KuD-cb-ysj" id="c7S-PG-Eps"/>
                         <outlet property="cancelButton" destination="IFy-2Y-4OM" id="ga6-Vo-1tv"/>
                         <outlet property="doneButton" destination="egE-uW-K1q" id="9o3-hi-RLK"/>
+                        <outlet property="redoButton" destination="NTn-yN-3Qf" id="VYp-Ku-BkR"/>
+                        <outlet property="undoButton" destination="2za-iY-tzl" id="jEJ-VA-qgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q24-RM-atn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

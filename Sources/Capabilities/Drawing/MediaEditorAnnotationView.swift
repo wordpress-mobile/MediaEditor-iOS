@@ -2,6 +2,11 @@ import UIKit
 import AVFoundation
 import PencilKit
 
+@available(iOS 13.0, *)
+protocol MediaEditorAnnotationViewUndoObserver: NSObject {
+    func mediaEditorAnnotationViewUndoStatusDidChange(_ view: MediaEditorAnnotationView)
+}
+
 /// Wrapper view that contains an image view and a PencilKit canvas to allow
 /// drawing on top of the image.
 ///
@@ -11,8 +16,15 @@ class MediaEditorAnnotationView: UIView {
     private let imageView = UIImageView()
     private let canvasView = PKCanvasView()
 
-    @IBOutlet weak var undoButton: UIButton!
-    @IBOutlet weak var redoButton: UIButton!
+    weak var undoObserver: MediaEditorAnnotationViewUndoObserver? = nil
+
+    var canUndo: Bool {
+        return canvasView.undoManager?.canUndo ?? false
+    }
+
+    var canRedo: Bool {
+        return canvasView.undoManager?.canRedo ?? false
+    }
 
     var image: UIImage? {
         set {
@@ -36,6 +48,8 @@ class MediaEditorAnnotationView: UIView {
     }
 
     deinit {
+        undoObserver = nil
+
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.NSUndoManagerCheckpoint,
                                                   object: canvasView.undoManager)
@@ -70,13 +84,12 @@ class MediaEditorAnnotationView: UIView {
         canvasView.overrideUserInterfaceStyle = .light
 
         NotificationCenter.default.addObserver(forName: NSNotification.Name.NSUndoManagerCheckpoint, object: canvasView.undoManager, queue: nil) { [weak self] _ in
-            self?.updateUndoRedoButtons()
+            self?.notifyUndoObserver()
         }
     }
 
-    private func updateUndoRedoButtons() {
-        undoButton.isEnabled = canvasView.undoManager?.canUndo ?? false
-        redoButton.isEnabled = canvasView.undoManager?.canRedo ?? false
+    fileprivate func notifyUndoObserver() {
+        undoObserver?.mediaEditorAnnotationViewUndoStatusDidChange(self)
     }
 
     // MARK: - View Layout
@@ -177,12 +190,10 @@ extension MediaEditorAnnotationView: PKToolPickerObserver {
 
         if obscuredFrame.isNull {
             canvasView.contentInset = .zero
-            undoButton.isHidden = true
-            redoButton.isHidden = true
+            notifyUndoObserver()
         } else {
             canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bounds.maxY - obscuredFrame.minY, right: 0)
-            undoButton.isHidden = false
-            redoButton.isHidden = false
+            notifyUndoObserver()
         }
 
         canvasView.scrollIndicatorInsets = canvasView.contentInset

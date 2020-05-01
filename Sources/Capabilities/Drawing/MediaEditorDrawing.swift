@@ -3,9 +3,12 @@ import PencilKit
 
 @available(iOS 13.0, *)
 class MediaEditorDrawing: UIViewController {
+    
     @IBOutlet weak var annotationView: MediaEditorAnnotationView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var redoButton: UIButton!
 
     var image: UIImage!
 
@@ -25,6 +28,7 @@ class MediaEditorDrawing: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        annotationView.undoObserver = self
         annotationView.image = image
     }
 
@@ -80,6 +84,24 @@ extension MediaEditorDrawing: MediaEditorCapability {
 
         if let cancelColor = styles[.cancelColor] as? UIColor {
             cancelButton.tintColor = cancelColor
+            undoButton.tintColor = cancelColor
+            redoButton.tintColor = cancelColor
         }
+
+        if let undoIcon = styles[.undoIcon] as? UIImage {
+            undoButton.setImage(undoIcon, for: .normal)
+        }
+
+        if let redoIcon = styles[.redoIcon] as? UIImage {
+            redoButton.setImage(redoIcon, for: .normal)
+        }
+    }
+}
+
+@available(iOS 13.0, *)
+extension MediaEditorDrawing: MediaEditorAnnotationViewUndoObserver {
+    func mediaEditorAnnotationViewUndoStatusDidChange(_ view: MediaEditorAnnotationView) {
+        undoButton.isEnabled = view.canUndo
+        redoButton.isEnabled = view.canRedo
     }
 }
