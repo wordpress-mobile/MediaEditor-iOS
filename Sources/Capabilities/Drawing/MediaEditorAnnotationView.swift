@@ -16,6 +16,8 @@ class MediaEditorAnnotationView: UIView {
     private let imageView = UIImageView()
     private let canvasView = PKCanvasView()
 
+    private var bottomConstraint: NSLayoutConstraint!
+
     weak var undoObserver: MediaEditorAnnotationViewUndoObserver? = nil
 
     var canUndo: Bool {
@@ -66,11 +68,13 @@ class MediaEditorAnnotationView: UIView {
 
         imageView.contentMode = .scaleAspectFit
 
+        bottomConstraint = imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            bottomConstraint
         ])
     }
 
@@ -104,13 +108,13 @@ class MediaEditorAnnotationView: UIView {
         guard let image = imageView.image,
             imageView.contentMode == .scaleAspectFit,
             image.size.width > 0 && image.size.height > 0 else {
-                return bounds
+                return imageView.bounds
         }
 
-        let size = AVMakeRect(aspectRatio: image.size, insideRect: bounds)
+        let size = AVMakeRect(aspectRatio: image.size, insideRect: imageView.bounds)
 
-        let x = (bounds.width - size.width) * 0.5
-        let y = (bounds.height - size.height) * 0.5
+        let x = (imageView.bounds.width - size.width) * 0.5
+        let y = (imageView.bounds.height - size.height) * 0.5
 
         return CGRect(x: x, y: y, width: size.width, height: size.height)
     }
@@ -189,12 +193,15 @@ extension MediaEditorAnnotationView: PKToolPickerObserver {
         let obscuredFrame = toolPicker.frameObscured(in: self)
 
         if obscuredFrame.isNull {
-            canvasView.contentInset = .zero
+            bottomConstraint.constant = 0
             notifyUndoObserver()
         } else {
-            canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bounds.maxY - obscuredFrame.minY, right: 0)
+            bottomConstraint.constant = -obscuredFrame.height
             notifyUndoObserver()
         }
+
+        setNeedsLayout()
+        layoutIfNeeded()
 
         canvasView.scrollIndicatorInsets = canvasView.contentInset
     }
