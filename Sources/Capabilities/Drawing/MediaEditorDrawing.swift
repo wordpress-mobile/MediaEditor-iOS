@@ -28,6 +28,12 @@ class MediaEditorDrawing: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setting images in code to avoid an 'iOS 13 only' warning in the storyboard
+        undoButton.setImage(UIImage(systemName: "arrow.uturn.left.circle"), for: .normal)
+        redoButton.setImage(UIImage(systemName: "arrow.uturn.right.circle"), for: .normal)
+        undoButton.setTitle(nil, for: .normal)
+        redoButton.setTitle(nil, for: .normal)
+
         annotationView.undoObserver = self
         annotationView.image = image
     }

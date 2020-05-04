@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +51,7 @@
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                        <state key="normal" image="arrow.uturn.left.circle" catalog="system"/>
+                                                        <state key="normal" title="Undo"/>
                                                         <connections>
                                                             <action selector="undo:" destination="Q24-RM-atn" eventType="touchUpInside" id="WYI-K0-86S"/>
                                                             <action selector="undoButton:" destination="20a-Cc-wle" eventType="touchUpInside" id="GMj-8S-3KN"/>
@@ -64,7 +64,7 @@
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                        <state key="normal" image="arrow.uturn.right.circle" catalog="system"/>
+                                                        <state key="normal" title="Redo"/>
                                                         <connections>
                                                             <action selector="redo:" destination="Q24-RM-atn" eventType="touchUpInside" id="aFY-lG-ndQ"/>
                                                         </connections>
@@ -131,8 +131,4 @@
             <point key="canvasLocation" x="73.913043478260875" y="-76.339285714285708"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.uturn.left.circle" catalog="system" width="128" height="121"/>
-        <image name="arrow.uturn.right.circle" catalog="system" width="128" height="121"/>
-    </resources>
 </document>
