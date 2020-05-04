@@ -101,7 +101,14 @@ class MediaEditorAnnotationView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        canvasView.frame = calculateCanvasFrame()
+        let currentFrame = canvasView.frame
+        let newFrame = calculateCanvasFrame()
+        canvasView.frame = newFrame
+
+        // If the canvas has changed size (e.g. due to device rotation) apply a transform
+        //  to the drawing so that it still fits the scaled imageview
+        let transform = CGAffineTransform(scaleX: newFrame.width / currentFrame.width, y: newFrame.height / currentFrame.height)
+        self.canvasView.drawing.transform(using: transform)
     }
 
     private func calculateCanvasFrame() -> CGRect {
