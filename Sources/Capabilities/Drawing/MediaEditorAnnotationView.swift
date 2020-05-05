@@ -37,6 +37,20 @@ class MediaEditorAnnotationView: UIView {
         }
     }
 
+    // Primarily for testing purposes
+    var drawingData: Data {
+        set {
+            do {
+                canvasView.drawing = try PKDrawing(data: newValue)
+            } catch {
+                print("Error setting annotation view drawing data.")
+            }
+        }
+        get {
+            return canvasView.drawing.dataRepresentation()
+        }
+    }
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
