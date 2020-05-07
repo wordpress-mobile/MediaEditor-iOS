@@ -106,6 +106,13 @@ extension MediaEditorDrawing: MediaEditorCapability {
 
 @available(iOS 13.0, *)
 extension MediaEditorDrawing: MediaEditorAnnotationViewUndoObserver {
+    func mediaEditorAnnotationView(_ annotationView: MediaEditorAnnotationView, isHidingUndoControls: Bool) {
+        let shouldShowCustomControls = !isHidingUndoControls
+
+        undoButton.isHidden = shouldShowCustomControls
+        redoButton.isHidden = shouldShowCustomControls
+    }
+
     func mediaEditorAnnotationViewUndoStatusDidChange(_ view: MediaEditorAnnotationView) {
         undoButton.isEnabled = view.canUndo
         redoButton.isEnabled = view.canRedo

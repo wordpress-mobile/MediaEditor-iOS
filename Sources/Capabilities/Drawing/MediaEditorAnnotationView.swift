@@ -4,6 +4,7 @@ import PencilKit
 
 @available(iOS 13.0, *)
 protocol MediaEditorAnnotationViewUndoObserver: NSObject {
+    func mediaEditorAnnotationView(_ annotationView: MediaEditorAnnotationView, isHidingUndoControls: Bool)
     func mediaEditorAnnotationViewUndoStatusDidChange(_ view: MediaEditorAnnotationView)
 }
 
@@ -216,10 +217,10 @@ extension MediaEditorAnnotationView: PKToolPickerObserver {
 
         if obscuredFrame.isNull {
             bottomConstraint.constant = 0
-            notifyUndoObserver()
+            undoObserver?.mediaEditorAnnotationView(self, isHidingUndoControls: false)
         } else {
             bottomConstraint.constant = -obscuredFrame.height
-            notifyUndoObserver()
+            undoObserver?.mediaEditorAnnotationView(self, isHidingUndoControls: true)
         }
 
         setNeedsLayout()
