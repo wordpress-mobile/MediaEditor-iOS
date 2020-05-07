@@ -147,7 +147,6 @@ class MediaEditorAnnotationView: UIView {
     ///
     func showTools(in window: UIWindow) {
         if let toolPicker = PKToolPicker.shared(for: window) {
-            toolPicker.overrideUserInterfaceStyle = .dark
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)
             toolPicker.addObserver(self)
