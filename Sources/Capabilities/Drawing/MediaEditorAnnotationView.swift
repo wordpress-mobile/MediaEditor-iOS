@@ -19,7 +19,7 @@ class MediaEditorAnnotationView: UIView {
 
     private var bottomConstraint: NSLayoutConstraint!
 
-    weak var undoObserver: MediaEditorAnnotationViewUndoObserver? = nil
+    weak var undoObserver: MediaEditorAnnotationViewUndoObserver?
 
     var canUndo: Bool {
         return canvasView.undoManager?.canUndo ?? false

@@ -1,5 +1,4 @@
 import UIKit
-import PencilKit
 
 @available(iOS 13.0, *)
 class MediaEditorDrawing: UIViewController {
