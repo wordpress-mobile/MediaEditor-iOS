@@ -55,12 +55,13 @@ class MediaEditorDrawing: UIViewController {
     }
 
     @IBAction func done(_ sender: Any) {
-        guard let image = annotationView.image else {
+        guard annotationView.canUndo,
+            let image = annotationView.image else {
             onCancel?()
             return
         }
 
-        onFinishEditing?(image, [.other])
+        onFinishEditing?(image, [.draw])
     }
 }
 

@@ -5,4 +5,5 @@ public enum MediaEditorOperation {
     case rotate
     case filter
     case other
+    case draw
 }
