@@ -60,8 +60,10 @@ class MediaEditorDrawingTests: XCTestCase {
         let mediaEditorDrawing = MediaEditorDrawing.initialize(image, onFinishEditing: { finishedImage, _ in
             result = finishedImage
         }, onCancel: {}) as! MediaEditorDrawing
+        let annotationViewMock = MediaEditorAnnotationViewMock()
 
         mediaEditorDrawing.loadView()
+        mediaEditorDrawing.annotationView = annotationViewMock
         mediaEditorDrawing.viewDidLoad()
         mediaEditorDrawing.done(self)
 
@@ -70,17 +72,17 @@ class MediaEditorDrawingTests: XCTestCase {
 
     func testModifiedImageIsReturnedIfChangesAreMade() {
         let image = UIImage(systemName: "arrowshape.turn.up.left")!
-        let drawingUrl = Bundle(for: MediaEditorDrawingTests.self).url(forResource: "demo-drawing", withExtension: nil)!
-        let drawingData = try! Data(contentsOf: drawingUrl)
 
         var result: UIImage? = nil
         let mediaEditorDrawing = MediaEditorDrawing.initialize(image, onFinishEditing: { finishedImage, _ in
             result = finishedImage
         }, onCancel: {}) as! MediaEditorDrawing
+        let annotationViewMock = MediaEditorAnnotationViewMock()
+        annotationViewMock.image = UIImage()
 
         mediaEditorDrawing.loadView()
         mediaEditorDrawing.viewDidLoad()
-        mediaEditorDrawing.annotationView.drawingData = drawingData
+        mediaEditorDrawing.annotationView = annotationViewMock
         mediaEditorDrawing.view.setNeedsLayout()
         mediaEditorDrawing.view.layoutIfNeeded()
 
@@ -96,5 +98,12 @@ class MediaEditorDrawingTests: XCTestCase {
 
         expect(mediaEditorDrawing.undoButton.isEnabled).to(beFalse())
         expect(mediaEditorDrawing.redoButton.isEnabled).to(beFalse())
+    }
+}
+
+@available(iOS 13.0, *)
+private class MediaEditorAnnotationViewMock: MediaEditorAnnotationView {
+    override var canUndo: Bool {
+        return true
     }
 }
