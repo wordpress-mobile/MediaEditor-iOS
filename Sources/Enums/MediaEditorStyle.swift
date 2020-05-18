@@ -17,4 +17,6 @@ public enum MediaEditorStyle {
     case selectedColor
     case errorLoadingImageMessage
     case retryIcon
+    case undoIcon
+    case redoIcon
 }
