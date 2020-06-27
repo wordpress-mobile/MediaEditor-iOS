@@ -1,15 +1,15 @@
 import UIKit
-import TOCropViewController
+import CropViewController
 
-typealias MediaEditorCropZoomRotate = TOCropViewController
+typealias MediaEditorCropZoomRotate = CropViewController
 
-extension TOCropViewController: MediaEditorCapability {
+extension CropViewController: MediaEditorCapability {
     public static var name = "Crop, Zoom, Rotate"
 
     public static var icon = UIImage(named: "gridicons-crop", in: .mediaEditor, compatibleWith: nil)!
 
     public static func initialize(_ image: UIImage, onFinishEditing: @escaping (UIImage, [MediaEditorOperation]) -> (), onCancel: @escaping () -> ()) -> CapabilityViewController {
-        let cropViewController = TOCropViewController(image: image)
+        let cropViewController = CropViewController(image: image)
 
         weak var toCrop = cropViewController
 

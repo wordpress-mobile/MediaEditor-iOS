@@ -1,5 +1,5 @@
 import XCTest
-import TOCropViewController
+import CropViewController
 import Nimble
 
 @testable import MediaEditor
