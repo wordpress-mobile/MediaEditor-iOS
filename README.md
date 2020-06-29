@@ -76,7 +76,7 @@ github "wordpress-mobile/MediaEditor-iOS"
 
 2. Run `carthage update`
 
-3. From the `Carthage/Build` folder, import `MediaEditor.framework` and `TOCropViewController.framework` into your Xcode project.
+3. From the `Carthage/Build` folder, import `MediaEditor.framework` and `CropViewController.framework` into your Xcode project.
 
 4. Follow the remaining steps on [Getting Started with Carthage](https://github.com/Carthage/Carthage#getting-started) to finish integrating the framework.
 

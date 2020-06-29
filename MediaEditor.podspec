@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
     'MediaEditor' => 'Sources/**/*.{xcassets}'
   }
 
-  s.dependency 'TOCropViewController', '~> 2.5.3'
+  s.dependency 'CropViewController', '~> 2.5.3'
 end

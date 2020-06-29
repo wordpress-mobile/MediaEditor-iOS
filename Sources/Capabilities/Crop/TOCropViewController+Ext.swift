@@ -1,7 +1,7 @@
-import TOCropViewController
+import CropViewController
 
-extension TOCropViewController {
-    // TOCropViewController sometimes resize the image by 1, 2 or 3 points automatically.
+extension CropViewController {
+    // CropViewController sometimes resize the image by 1, 2 or 3 points automatically.
     // In those cases we're not considering that as a cropping action.
     var isCropped: Bool {
         return abs(imageSizeDiscardingRotation.width - image.size.width) > 4 ||
