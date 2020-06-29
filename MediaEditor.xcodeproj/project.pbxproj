@@ -125,7 +125,7 @@
 		8B5046AC23D7C9AD00068F66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B5046AF23D7C9AD00068F66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B5046B123D7C9AD00068F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TOCropViewController.framework; path = Carthage/Build/iOS/TOCropViewController.framework; sourceTree = "<group>"; };
+		8B5046B723D7CCBD00068F66 /* CropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CropViewController.framework; path = Carthage/Build/iOS/CropViewController.framework; sourceTree = "<group>"; };
 		8B5046C423D7CE1600068F66 /* UIImage+AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AsyncImage.swift"; sourceTree = "<group>"; };
 		8B5046C523D7CE1600068F66 /* PHAsset+AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+AsyncImage.swift"; sourceTree = "<group>"; };
 		8B5046C623D7CE1600068F66 /* MediaEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaEditor.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5046BB23D7CCD000068F66 /* TOCropViewController.framework in Frameworks */,
+				8B5046BB23D7CCD000068F66 /* CropViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5046B823D7CCBD00068F66 /* TOCropViewController.framework in Frameworks */,
+				8B5046B823D7CCBD00068F66 /* CropViewController.framework in Frameworks */,
 				8B5046B623D7C9E300068F66 /* MediaEditor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5046FC23D7D16A00068F66 /* Nimble.framework */,
-				8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */,
+				8B5046B723D7CCBD00068F66 /* CropViewController.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

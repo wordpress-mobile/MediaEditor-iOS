@@ -1,5 +1,5 @@
 import XCTest
-import TOCropViewController
+import CropViewController
 import Nimble
 
 @testable import MediaEditor
@@ -17,7 +17,7 @@ class MediaEditorCropZoomRotateTests: XCTestCase {
     func testDoNotHideNavigation() {
         let mediaEditorCrop = MediaEditorCropZoomRotate.initialize(image, onFinishEditing: { _, _ in }, onCancel: {})
 
-        let viewController = mediaEditorCrop as? TOCropViewController
+        let viewController = mediaEditorCrop as? CropViewController
 
         expect(viewController?.hidesNavigationBar).to(beFalse())
     }
@@ -30,7 +30,7 @@ class MediaEditorCropZoomRotateTests: XCTestCase {
                 onFinishEditingCalled = true
             },
             onCancel: {})
-        let viewController = mediaEditorCrop as? TOCropViewController
+        let viewController = mediaEditorCrop as? CropViewController
 
         viewController?.onDidCropToRect?(image, .zero, 0)
 
@@ -46,7 +46,7 @@ class MediaEditorCropZoomRotateTests: XCTestCase {
                 onCancelCalled = true
             }
         )
-        let viewController = mediaEditorCrop as? TOCropViewController
+        let viewController = mediaEditorCrop as? CropViewController
 
         viewController?.onDidFinishCancelled?(true)
 
@@ -58,7 +58,7 @@ class MediaEditorCropZoomRotateTests: XCTestCase {
 
         mediaEditorCrop.apply(styles: [.rotateCounterclockwiseButtonHidden: true])
 
-        let viewController = mediaEditorCrop as? TOCropViewController
+        let viewController = mediaEditorCrop as? CropViewController
         expect(viewController?.toolbar.rotateCounterclockwiseButtonHidden).to(beTrue())
     }
 

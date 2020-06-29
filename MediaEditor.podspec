@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MediaEditor'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'An extensible Media Editor for iOS.'
 
   s.description      = <<-DESC
@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
     'MediaEditor' => 'Sources/**/*.{xcassets}'
   }
 
-  s.dependency 'TOCropViewController', '~> 2.5.2'
+  s.dependency 'CropViewController', '~> 2.5.3'
 end
