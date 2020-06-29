@@ -1,3 +1,7 @@
+1.2.0
+-----
+* Replace TOCropViewController with CropViewController
+
 1.1.0
 -----
 * Add Drawing capability using PencilKit
