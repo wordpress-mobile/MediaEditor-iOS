@@ -1,3 +1,7 @@
+1.2.1
+-----
+* Improve memory usage of AnnotationView when rendering drawings
+ 
 1.2.0
 -----
 * Replace TOCropViewController with CropViewController
