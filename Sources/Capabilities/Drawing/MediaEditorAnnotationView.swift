@@ -178,7 +178,10 @@ class MediaEditorAnnotationView: UIView {
 
         let canvasViewImage = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
 
-        let renderer = UIGraphicsImageRenderer(size: targetSize, format: .default())
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
         let renderedImage = renderer.image { context in
             imageViewImage.draw(at: .zero)
             canvasViewImage.draw(in: CGRect(origin: .zero, size: targetSize))
