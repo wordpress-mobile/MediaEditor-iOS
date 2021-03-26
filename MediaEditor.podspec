@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.homepage      = 'https://github.com/wordpress-mobile/MediaEditor-iOS'
   s.license       = { :type => 'GPLv2', :file => 'LICENSE' }
-  s.author        = { 'The WordPress Mobile Team' => 'mobile@automattic.com' }
+  s.author        = { 'The WordPress Mobile Team' => 'mobile@wordpress.org' }
   
   s.ios.deployment_target = '11.0'
   s.swift_version = '5.0'
