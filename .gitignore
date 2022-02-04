@@ -87,7 +87,6 @@ build-iPhoneSimulator/
 /rdoc/
 
 ## Environment normalization:
-/.bundle/
 /vendor/bundle
 /lib/bundler/man/
 
@@ -169,7 +168,7 @@ Dependencies/
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
-
+/fastlane/README.md
 
 # Code Injection
 # After new code Injection tools there's a generated folder /iOSInjectionProject
