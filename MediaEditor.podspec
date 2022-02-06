@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.version       = '1.2.1'
 
   s.summary       = 'An extensible Media Editor for iOS.'
-  s.description   = <<-DESC
-                    An extensible Media Editor for iOS that allows editing single or multiple images.
+  s.description   = <<~DESC
+    An extensible Media Editor for iOS that allows editing single or multiple images.
   DESC
 
   s.homepage      = 'https://github.com/wordpress-mobile/MediaEditor-iOS'
