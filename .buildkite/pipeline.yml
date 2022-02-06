@@ -11,7 +11,7 @@ steps:
   #################
   # Build and Test
   #################
-  - label: "🧪 Build and Test"
+  - label: "🔬 Build and Test"
     key: "test"
     command: |
       # See https://github.com/Automattic/bash-cache-buildkite-plugin/issues/16
