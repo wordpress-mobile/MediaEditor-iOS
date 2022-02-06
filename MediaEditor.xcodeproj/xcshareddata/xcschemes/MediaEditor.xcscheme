@@ -28,6 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8B50471723D7D32B00068F66"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
+               ReferencedContainer = "container:MediaEditor.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MediaEditorHubTests/testDoNotShowActivityIndicatorIfImageIsNotBeingLoaded()">
+               </Test>
+               <Test
+                  Identifier = "MediaEditorHubTests/testShowActivityIndicatorWhenSwipingToAnImageBeingLoaded()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

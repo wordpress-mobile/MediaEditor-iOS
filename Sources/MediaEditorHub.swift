@@ -373,7 +373,7 @@ extension MediaEditorHub: UICollectionViewDelegate {
     }
 }
 
-protocol MediaEditorHubDelegate: class {
+protocol MediaEditorHubDelegate: AnyObject {
     func capabilityTapped(_ index: Int)
     func retry()
 }

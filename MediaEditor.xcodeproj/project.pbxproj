@@ -12,6 +12,8 @@
 		178126E62460B25300253107 /* MediaEditorDrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178126E52460B25300253107 /* MediaEditorDrawingTests.swift */; };
 		178126E82461A2ED00253107 /* demo-drawing in Resources */ = {isa = PBXBuildFile; fileRef = 178126E72461A2DA00253107 /* demo-drawing */; };
 		17DBA238245B1507006CD67F /* MediaEditorDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DBA237245B1507006CD67F /* MediaEditorDrawing.swift */; };
+		2465F73A27ACDC0700F507A0 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 2465F73927ACDC0700F507A0 /* CropViewController */; };
+		2477A32A27ACDD5F00ADA7F3 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 2477A32927ACDD5F00ADA7F3 /* Nimble */; };
 		8B05570523E1BF5900C10787 /* DeviceLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570423E1BF5900C10787 /* DeviceLibraryViewController.swift */; };
 		8B05570723E1C1D800C10787 /* ImageViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570623E1C1D800C10787 /* ImageViewCollectionCell.swift */; };
 		8B05570923E1CF2E00C10787 /* PlainUIImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05570823E1CF2E00C10787 /* PlainUIImageViewController.swift */; };
@@ -33,10 +35,6 @@
 		8B5046AD23D7C9AD00068F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5046AC23D7C9AD00068F66 /* Assets.xcassets */; };
 		8B5046B023D7C9AD00068F66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5046AE23D7C9AD00068F66 /* LaunchScreen.storyboard */; };
 		8B5046B623D7C9E300068F66 /* MediaEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B50469223D7C88200068F66 /* MediaEditor.framework */; };
-		8B5046B823D7CCBD00068F66 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */; };
-		8B5046B923D7CCBD00068F66 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B5046BB23D7CCD000068F66 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */; };
-		8B5046BC23D7CCD000068F66 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5046B723D7CCBD00068F66 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B5046D623D7CE1600068F66 /* UIImage+AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046C423D7CE1600068F66 /* UIImage+AsyncImage.swift */; };
 		8B5046D723D7CE1600068F66 /* PHAsset+AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046C523D7CE1600068F66 /* PHAsset+AsyncImage.swift */; };
 		8B5046D823D7CE1600068F66 /* MediaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5046C623D7CE1600068F66 /* MediaEditor.swift */; };
@@ -55,7 +53,6 @@
 		8B50472723D7D36C00068F66 /* MediaEditorHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50472223D7D36C00068F66 /* MediaEditorHubTests.swift */; };
 		8B50472823D7D36C00068F66 /* MediaEditorCropZoomRotateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50472523D7D36C00068F66 /* MediaEditorCropZoomRotateTests.swift */; };
 		8B50472923D7D36C00068F66 /* MediaEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50472623D7D36C00068F66 /* MediaEditorTests.swift */; };
-		8B50472A23D7D39900068F66 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5046FC23D7D16A00068F66 /* Nimble.framework */; platformFilter = ios; };
 		8B50472D23D87C3500068F66 /* UIApplication+topWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50472C23D87C3500068F66 /* UIApplication+topWindow.swift */; };
 		8B50472F23D87DA400068F66 /* UIImage+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50472E23D87DA400068F66 /* UIImage+color.swift */; };
 /* End PBXBuildFile section */
@@ -78,18 +75,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8B12DEC723DFB21A00243CD8 /* MediaEditor.framework in Embed Frameworks */,
-				8B5046B923D7CCBD00068F66 /* TOCropViewController.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B5046BD23D7CCD000068F66 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8B5046BC23D7CCD000068F66 /* TOCropViewController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5046BB23D7CCD000068F66 /* CropViewController.framework in Frameworks */,
+				2465F73A27ACDC0700F507A0 /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +149,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5046B823D7CCBD00068F66 /* CropViewController.framework in Frameworks */,
 				8B5046B623D7C9E300068F66 /* MediaEditor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B50472A23D7D39900068F66 /* Nimble.framework in Frameworks */,
+				2477A32A27ACDD5F00ADA7F3 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,13 +436,15 @@
 				8B50468E23D7C88200068F66 /* Sources */,
 				8B50468F23D7C88200068F66 /* Frameworks */,
 				8B50469023D7C88200068F66 /* Resources */,
-				8B5046BD23D7CCD000068F66 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MediaEditor;
+			packageProductDependencies = (
+				2465F73927ACDC0700F507A0 /* CropViewController */,
+			);
 			productName = MediaEditor;
 			productReference = 8B50469223D7C88200068F66 /* MediaEditor.framework */;
 			productType = "com.apple.product-type.framework";
@@ -488,7 +474,6 @@
 				8B50471423D7D32B00068F66 /* Sources */,
 				8B50471523D7D32B00068F66 /* Frameworks */,
 				8B50471623D7D32B00068F66 /* Resources */,
-				8B50473123D87EE000068F66 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -496,6 +481,9 @@
 				8B50471E23D7D32B00068F66 /* PBXTargetDependency */,
 			);
 			name = Tests;
+			packageProductDependencies = (
+				2477A32927ACDD5F00ADA7F3 /* Nimble */,
+			);
 			productName = Tests;
 			productReference = 8B50471823D7D32B00068F66 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -533,6 +521,10 @@
 				Base,
 			);
 			mainGroup = 8B50468823D7C88200068F66;
+			packageReferences = (
+				2465F73827ACDC0700F507A0 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				2477A32827ACDD5F00ADA7F3 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 8B50469323D7C88200068F66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -576,28 +568,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8B50473123D87EE000068F66 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B50468E23D7C88200068F66 /* Sources */ = {
@@ -815,10 +785,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -846,10 +813,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -872,10 +836,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -894,10 +855,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -917,10 +875,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -943,10 +898,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,6 +953,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2465F73827ACDC0700F507A0 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2477A32827ACDD5F00ADA7F3 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2465F73927ACDC0700F507A0 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2465F73827ACDC0700F507A0 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		2477A32927ACDD5F00ADA7F3 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2477A32827ACDD5F00ADA7F3 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B50468923D7C88200068F66 /* Project object */;
 }
