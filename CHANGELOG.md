@@ -22,7 +22,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Fix a `viewWillDisappear` method calling `super.viewWillAppear` [#40]
 
 ### Internal Changes
 
