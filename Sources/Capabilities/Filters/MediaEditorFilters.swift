@@ -72,6 +72,7 @@ class MediaEditorFilters: UIViewController {
     private var selectedFilterIndex = IndexPath(row: 0, section: 0)
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         imageView.image = image
         filtersCollectionView.dataSource = self
         filtersCollectionView.delegate = self
