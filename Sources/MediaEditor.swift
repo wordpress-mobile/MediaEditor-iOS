@@ -141,7 +141,7 @@ open class MediaEditor: UINavigationController {
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillDisappear(animated)
         currentCapability = nil
     }
 
