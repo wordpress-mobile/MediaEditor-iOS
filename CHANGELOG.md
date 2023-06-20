@@ -22,7 +22,7 @@ _None._
 
 ### Bug Fixes
 
-- Fix a `viewWillDisappear` method calling `super.viewWillAppear` [#40]
+_None._
 
 ### Internal Changes
 
@@ -43,6 +43,16 @@ _None._
 ### Bug Fixes
 
 _None._
+
+### Internal Changes
+
+_None._
+
+## 1.2.2
+
+### Bug Fixes
+
+- Fix a `viewWillDisappear` method calling `super.viewWillAppear` [#40]
 
 ### Internal Changes
 
