@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name          = 'MediaEditor'
-  s.version       = '1.2.1'
+  s.version       = '1.2.2'
 
   s.summary       = 'An extensible Media Editor for iOS.'
   s.description   = <<~DESC
