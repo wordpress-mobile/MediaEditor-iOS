@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license       = { type: 'GPLv2', file: 'LICENSE' }
   s.author        = { 'The WordPress Mobile Team' => 'mobile@wordpress.org' }
 
-  s.ios.deployment_target = '11.0'
+  s.platform = :ios, '12.0'
   s.swift_version = '5.0'
 
   s.source        = { git: 'https://github.com/wordpress-mobile/MediaEditor-iOS.git', tag: s.version.to_s }
