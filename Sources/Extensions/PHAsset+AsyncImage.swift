@@ -18,10 +18,10 @@ extension PHAsset: AsyncImage {
     */
     public var requests: [PHImageRequestID] {
         get {
-            return objc_getAssociatedObject(self, &Keys.requests) as? [PHImageRequestID] ?? []
+            return objc_getAssociatedObject(self, Keys.requests) as? [PHImageRequestID] ?? []
         }
         set {
-            objc_setAssociatedObject(self, &Keys.requests, newValue, .OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, Keys.requests, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
 
@@ -72,6 +72,6 @@ extension PHAsset: AsyncImage {
     }
 
     private enum Keys {
-        static var requests = "requests"
+        static let requests = malloc(1)!
     }
 }
