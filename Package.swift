@@ -14,9 +14,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "MediaEditor", 
+            name: "MediaEditor",
             dependencies: [
                 .product(name: "CropViewController", package: "TOCropViewController")
-            ])
+            ],
+            resources: [.process("Resources")])
     ]
 )
