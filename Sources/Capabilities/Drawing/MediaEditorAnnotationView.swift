@@ -11,6 +11,7 @@ protocol MediaEditorAnnotationViewUndoObserver: NSObject {
 /// Wrapper view that contains an image view and a PencilKit canvas to allow
 /// drawing on top of the image.
 ///
+@objc(WPMediaEditorAnnotationView)
 @available(iOS 13.0, *)
 class MediaEditorAnnotationView: UIView {
 

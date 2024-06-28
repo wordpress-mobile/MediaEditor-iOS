@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(WPMediaEditorHubViewController)
 public class MediaEditorHub: UIViewController {
 
     @IBOutlet public weak var doneButton: UIButton!

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Media Editor Drawing-->
+        <!--Media Editor Drawing View Controller-->
         <scene sceneID="c1B-7t-CTr">
             <objects>
-                <viewController storyboardIdentifier="drawingViewController" id="uy1-xE-iLe" customClass="MediaEditorDrawing" customModule="MediaEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="drawingViewController" id="uy1-xE-iLe" customClass="WPMediaEditorDrawingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Jy-bd-2Ao">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AlG-Gr-6cY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BwS-ar-kTV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFy-2Y-4OM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFy-2Y-4OM">
                                                 <rect key="frame" x="0.0" y="0.0" width="156" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="FTj-uO-CKq"/>
@@ -71,7 +71,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egE-uW-K1q">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egE-uW-K1q">
                                                 <rect key="frame" x="361" y="0.0" width="53" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="Bay-oh-sXZ"/>
@@ -90,10 +90,10 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5w-Z1-QLC">
-                                        <rect key="frame" x="0.0" y="54" width="414" height="764"/>
+                                        <rect key="frame" x="0.0" y="54" width="414" height="760"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-cb-ysj" userLabel="Annotation View" customClass="MediaEditorAnnotationView" customModule="MediaEditor" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="394" height="764"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-cb-ysj" userLabel="Annotation View" customClass="WPMediaEditorAnnotationView">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="760"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -108,6 +108,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="sGv-Ig-jBp"/>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AlG-Gr-6cY" firstAttribute="top" secondItem="sGv-Ig-jBp" secondAttribute="top" id="LbP-L3-IdF"/>
@@ -115,7 +116,6 @@
                             <constraint firstItem="sGv-Ig-jBp" firstAttribute="trailing" secondItem="AlG-Gr-6cY" secondAttribute="trailing" symbolic="YES" id="kjm-l6-Ik3"/>
                             <constraint firstItem="AlG-Gr-6cY" firstAttribute="leading" secondItem="sGv-Ig-jBp" secondAttribute="leading" id="n9m-6v-EBP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="sGv-Ig-jBp"/>
                     </view>
                     <connections>
                         <outlet property="annotationView" destination="KuD-cb-ysj" id="c7S-PG-Eps"/>

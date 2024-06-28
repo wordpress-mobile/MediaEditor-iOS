@@ -5,6 +5,7 @@ struct MediaEditorFilter {
     let ciFilterName: String
 }
 
+@objc(WPMediaEditorFiltersViewController)
 class MediaEditorFilters: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!

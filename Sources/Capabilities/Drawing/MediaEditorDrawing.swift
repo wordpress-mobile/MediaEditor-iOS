@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(WPMediaEditorDrawingViewController)
 @available(iOS 13.0, *)
 class MediaEditorDrawing: UIViewController {
     
