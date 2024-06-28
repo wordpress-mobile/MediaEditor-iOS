@@ -20,7 +20,7 @@ class MediaEditorDrawing: UIViewController {
     static func initialize() -> MediaEditorDrawing {
         return UIStoryboard(
             name: "MediaEditorDrawing",
-            bundle: Bundle(for: MediaEditorDrawing.self)
+            bundle: .mediaEditorBundle(for: MediaEditorDrawing.self)
         ).instantiateViewController(withIdentifier: "drawingViewController") as! MediaEditorDrawing
     }
 

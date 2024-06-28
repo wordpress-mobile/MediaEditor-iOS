@@ -15,4 +15,12 @@ extension Bundle {
         return defaultBundle
 #endif
     }
+
+    static func mediaEditorBundle(for type: AnyClass) -> Bundle? {
+#if SWIFT_PACKAGE
+        return Bundle.module
+#else
+        return Bundle(for: type)
+#endif
+    }
 }

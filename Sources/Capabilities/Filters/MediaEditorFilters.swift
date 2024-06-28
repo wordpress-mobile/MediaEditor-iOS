@@ -120,7 +120,7 @@ class MediaEditorFilters: UIViewController {
     static func initialize() -> MediaEditorFilters {
         return UIStoryboard(
             name: "MediaEditorFilters",
-            bundle: Bundle(for: MediaEditorFilters.self)
+            bundle: .mediaEditorBundle(for: MediaEditorFilters.self)
         ).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFilters
     }
 

@@ -253,7 +253,7 @@ public class MediaEditorHub: UIViewController {
     }
 
     static func initialize() -> MediaEditorHub {
-        return UIStoryboard(name: "MediaEditorHub", bundle: Bundle(for: MediaEditorHub.self)).instantiateViewController(withIdentifier: "hubViewController") as! MediaEditorHub
+        return UIStoryboard(name: "MediaEditorHub", bundle: .mediaEditorBundle(for: MediaEditorHub.self)).instantiateViewController(withIdentifier: "hubViewController") as! MediaEditorHub
     }
 
     private enum Constants {
