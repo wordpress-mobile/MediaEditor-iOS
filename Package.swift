@@ -10,7 +10,10 @@ let package = Package(
         .library(name: "MediaEditor", targets: ["MediaEditor"])
     ],
     dependencies: [
-        .package(url: "https://github.com/TimOliver/TOCropViewController", from: "2.5.3")
+        .package(
+          url: "https://github.com/mokagio/TOCropViewController",
+          revision: "e857007a7d099ef173f8733d7964b7abdff79772"
+        )
     ],
     targets: [
         .target(
