@@ -68,7 +68,7 @@ class RemoteImage: AsyncImage {
     func full(finishedRetrievingFullImage: @escaping (UIImage?) -> ()) {
         let task = URLSession.shared.dataTask(with: fullImageURL) { data, response, error in
             guard let data = data, error == nil else {
-                // If any error occured, calls the callback without an image
+                // If any error occurred, calls the callback without an image
                 finishedRetrievingFullImage(nil)
                 return
             }
