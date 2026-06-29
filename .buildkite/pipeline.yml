@@ -1,12 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/buildkite/pipeline-schema/main/schema.json
+---
+
+agents:
+  queue: mac
+
+env:
+  IMAGE_ID: xcode-16.4
+
 # Nodes with values to reuse in the pipeline.
 common_params:
   plugins: &common_plugins
-    - automattic/a8c-ci-toolkit#2.13.0
-  # Common environment values to use with the `env` key.
-  env: &common_env
-    IMAGE_ID: xcode-15.0.1
+    - automattic/a8c-ci-toolkit#5.3.1
 
-# This is the default pipeline – it will build and test the app
+# This is the default pipeline – it will build and test the library
 steps:
   #################
   # Build and Test
@@ -15,9 +21,8 @@ steps:
     key: "test"
     command: |
       build_and_test_pod
-    env: *common_env
     plugins: *common_plugins
-    artifact_paths: 
+    artifact_paths:
       - .build/logs/*.log
       - .build/derived-data/Logs/**/*.xcactivitylog
 
@@ -33,7 +38,6 @@ steps:
       cat .buildkite/validate_podspec_annotation.md
       # and also as an annotation
       cat .buildkite/validate_podspec_annotation.md | buildkite-agent annotate --style 'warning'
-    env: *common_env
     plugins: *common_plugins
 
   #################
@@ -43,7 +47,6 @@ steps:
     key: "lint"
     command: |
       lint_pod
-    env: *common_env
     plugins: *common_plugins
 
   #################
@@ -52,12 +55,9 @@ steps:
   - label: "⬆️ Publish Podspec"
     key: "publish"
     command: .buildkite/publish-pod.sh
-    env: *common_env
     plugins: *common_plugins
     depends_on:
       - "test"
       - "validate"
       - "lint"
     if: build.tag != null
-    agents:
-      queue: "mac"
