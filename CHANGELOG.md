@@ -14,7 +14,7 @@ When releasing a new version:
 
 ### Breaking Changes
 
-_None._
+- Remove CocoaPods support.
 
 ### New Features
 
