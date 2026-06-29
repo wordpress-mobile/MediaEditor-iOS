@@ -61,7 +61,26 @@ Check the Example app for even more ways to use the MediaEditor:
 
 ### Swift Package Manager
 
-Add `https://github.com/wordpress-mobile/MediaEditor-iOS` as a package dependency.
+Add `MediaEditor` as a package dependency:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/wordpress-mobile/MediaEditor-iOS.git", from: "1.3.0")
+]
+```
+
+Then add `MediaEditor` to your target dependencies:
+
+```swift
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            .product(name: "MediaEditor", package: "MediaEditor-iOS")
+        ]
+    )
+]
+```
 
 ### Manual Installation
 

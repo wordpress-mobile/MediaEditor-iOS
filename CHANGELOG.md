@@ -14,7 +14,7 @@ When releasing a new version:
 
 ### Breaking Changes
 
-- Remove CocoaPods support. [#51]
+_None._
 
 ### New Features
 
@@ -46,7 +46,7 @@ _None._
 
 ### Internal Changes
 
-_None._
+- Remove CocoaPods support. [#51]
 
 ## 1.2.2
 
