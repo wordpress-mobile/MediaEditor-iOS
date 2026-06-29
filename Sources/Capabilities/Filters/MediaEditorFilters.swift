@@ -5,6 +5,7 @@ struct MediaEditorFilter {
     let ciFilterName: String
 }
 
+@objc(WPMediaEditorFiltersViewController)
 class MediaEditorFilters: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
@@ -120,7 +121,7 @@ class MediaEditorFilters: UIViewController {
     static func initialize() -> MediaEditorFilters {
         return UIStoryboard(
             name: "MediaEditorFilters",
-            bundle: Bundle(for: MediaEditorFilters.self)
+            bundle: .mediaEditorBundle(for: MediaEditorFilters.self)
         ).instantiateViewController(withIdentifier: "filtersViewController") as! MediaEditorFilters
     }
 

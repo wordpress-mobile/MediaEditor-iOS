@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Media Editor Hub-->
+        <!--Media Editor Hub View Controller-->
         <scene sceneID="muT-G1-vZx">
             <objects>
-                <viewController storyboardIdentifier="hubViewController" id="e8N-xf-0aT" customClass="MediaEditorHub" customModule="MediaEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hubViewController" id="e8N-xf-0aT" customClass="WPMediaEditorHubViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8gk-Xl-RJi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o0b-fF-tJw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE3-IH-MzE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -48,14 +49,14 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="capabilityCell" id="Z78-n9-pAQ" customClass="MediaEditorCapabilityCell" customModule="MediaEditor" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="capabilityCell" id="Z78-n9-pAQ" customClass="WPMediaEditorCapabilityCell">
                                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yi2-iG-hCx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-bX-y3d">
+                                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-bX-y3d">
                                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="44" id="8Z3-NE-bqz"/>
@@ -93,7 +94,7 @@
                                         </constraints>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t2B-QE-aMZ">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="710"/>
+                                        <rect key="frame" x="0.0" y="44" width="414" height="706"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZBA-T2-zcM">
                                             <size key="itemSize" width="406" height="698"/>
@@ -102,8 +103,8 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="Ls1-Pp-3Ej" customClass="MediaEditorImageCell" customModule="MediaEditor" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="6" width="406" height="698"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="Ls1-Pp-3Ej" customClass="WPMediaEditorImageCell">
+                                                <rect key="frame" x="0.0" y="4" width="406" height="698"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="s4y-N0-CsG">
                                                     <rect key="frame" x="0.0" y="0.0" width="406" height="698"/>
@@ -180,7 +181,7 @@
                                         </cells>
                                     </collectionView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q46-gu-oX6">
-                                        <rect key="frame" x="0.0" y="754" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="750" width="414" height="64"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSd-V7-9yc">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
@@ -195,7 +196,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbCell" id="FiQ-UG-fa8" customClass="MediaEditorThumbCell" customModule="MediaEditor" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbCell" id="FiQ-UG-fa8" customClass="WPMediaEditorThumbCell">
                                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="an7-K3-QRf">
@@ -234,7 +235,7 @@
                                                     <constraint firstAttribute="height" constant="64" id="pCQ-KB-oiJ"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW9-rG-pUQ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW9-rG-pUQ">
                                                 <rect key="frame" x="250" y="0.0" width="164" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="MAU-vg-0ly"/>
@@ -252,7 +253,7 @@
                                 </subviews>
                             </stackView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsd-ER-63U">
-                                <rect key="frame" x="126.5" y="421" width="161" height="44"/>
+                                <rect key="frame" x="126.5" y="423" width="161" height="44"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ddb-h0-XWe">
                                     <rect key="frame" x="0.0" y="0.0" width="161" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -288,6 +289,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="xJb-mz-iou"/>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="o0b-fF-tJw" firstAttribute="leading" secondItem="xJb-mz-iou" secondAttribute="leading" id="ARz-6D-jmT"/>
@@ -297,7 +299,6 @@
                             <constraint firstItem="Xsd-ER-63U" firstAttribute="centerX" secondItem="t2B-QE-aMZ" secondAttribute="centerX" id="g6C-fC-std"/>
                             <constraint firstItem="xJb-mz-iou" firstAttribute="trailing" secondItem="o0b-fF-tJw" secondAttribute="trailing" symbolic="YES" id="ucE-cD-JYq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="xJb-mz-iou"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicatorLabel" destination="e4Q-QZ-yuo" id="p1R-24-vGe"/>

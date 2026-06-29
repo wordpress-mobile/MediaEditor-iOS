@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(WPMediaEditorCapabilityCell)
 class MediaEditorCapabilityCell: UICollectionViewCell {
     @IBOutlet weak var iconButton: UIButton!
 

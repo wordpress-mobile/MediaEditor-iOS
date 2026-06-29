@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(WPMediaEditorThumbCell)
 class MediaEditorThumbCell: UICollectionViewCell {
     @IBOutlet weak var thumbImageView: UIImageView!
 
