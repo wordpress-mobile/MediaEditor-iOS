@@ -52,8 +52,7 @@ _None._
 
 ### New Features
 
-- Add Swift Package Manager support [#45]
-- Drop CocoaPods [#45]
+- Add Swift Package Manager support. [#45]
 
 ### Internal Changes
 
