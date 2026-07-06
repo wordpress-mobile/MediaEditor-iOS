@@ -20,25 +20,12 @@ steps:
   - label: "🔬 Build and Test"
     key: "test"
     command: |
-      build_and_test_pod
+      install_gems
+      bundle exec fastlane ios test
     plugins: *common_plugins
     artifact_paths:
       - .build/logs/*.log
       - .build/derived-data/Logs/**/*.xcactivitylog
-
-  #################
-  # Validate Podspec
-  #################
-  - label: "🔬 Validate Podspec"
-    key: "validate"
-    command: |
-      # validate_podspec
-      echo '+++ ⚠️ validate_podspec was bypassed ⚠️'
-      # post a message in the logs
-      cat .buildkite/validate_podspec_annotation.md
-      # and also as an annotation
-      cat .buildkite/validate_podspec_annotation.md | buildkite-agent annotate --style 'warning'
-    plugins: *common_plugins
 
   #################
   # Lint
@@ -46,18 +33,6 @@ steps:
   - label: "🧹 Lint"
     key: "lint"
     command: |
-      lint_pod
+      install_gems
+      bundle exec rubocop
     plugins: *common_plugins
-
-  #################
-  # Publish the Podspec (if we're building a tag)
-  #################
-  - label: "⬆️ Publish Podspec"
-    key: "publish"
-    command: .buildkite/publish-pod.sh
-    plugins: *common_plugins
-    depends_on:
-      - "test"
-      - "validate"
-      - "lint"
-    if: build.tag != null

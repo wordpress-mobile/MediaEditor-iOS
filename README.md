@@ -1,6 +1,6 @@
 # MediaEditor
 
-[![CircleCI](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS.svg?style=svg)](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS) [![Version](https://img.shields.io/cocoapods/v/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![License](https://img.shields.io/cocoapods/l/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![Platform](https://img.shields.io/cocoapods/p/MediaEditor.svg?style=flat)](http://cocoadocs.org/docsets/MediaEditor) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CircleCI](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS.svg?style=svg)](https://circleci.com/gh/wordpress-mobile/MediaEditor-iOS) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 MediaEditor is an extendable library for iOS that allows you to quickly and easily add image editing features to your app. You can edit single or multiple images, from the device's library or any other source. It has been designed to feel natural and part of the OS.
 
@@ -54,17 +54,32 @@ Check the Example app for even more ways to use the MediaEditor:
 
 # Requirements
 
-* iOS 11.0+
+* iOS 15.0+
 * Swift 5
 
 # Installation
 
-### Cocoapods
+### Swift Package Manager
 
-Add the following to your Podfile:
+Add `MediaEditor` as a package dependency:
 
-```ruby
-pod 'MediaEditor'
+```swift
+dependencies: [
+    .package(url: "https://github.com/wordpress-mobile/MediaEditor-iOS.git", from: "1.3.0")
+]
+```
+
+Then add `MediaEditor` to your target dependencies:
+
+```swift
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            .product(name: "MediaEditor", package: "MediaEditor-iOS")
+        ]
+    )
+]
 ```
 
 ### Manual Installation

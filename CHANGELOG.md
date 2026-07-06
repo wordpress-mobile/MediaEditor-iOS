@@ -46,14 +46,13 @@ _None._
 
 ### Internal Changes
 
-_None._
+- Remove CocoaPods support. [#51]
 
 ## [1.3.0](https://github.com/wordpress-mobile/MediaEditor-iOS/releases/tag/1.3.0)
 
 ### New Features
 
-- Add Swift Package Manager support [#45]
-- Drop CocoaPods [#45]
+- Add Swift Package Manager support. [#45]
 
 ### Internal Changes
 

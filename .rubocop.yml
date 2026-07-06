@@ -4,8 +4,3 @@ AllCops:
     - DerivedData/**/*
     - vendor/**/*
   NewCops: enable
-
-# Allow the Podspec filename to match the project
-Naming/FileName:
-  Exclude:
-    - 'MediaEditor.podspec'

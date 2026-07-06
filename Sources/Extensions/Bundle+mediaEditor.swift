@@ -5,14 +5,7 @@ extension Bundle {
 #if SWIFT_PACKAGE
         return Bundle.module
 #else
-        let defaultBundle = Bundle(for: MediaEditor.self)
-        // If installed with CocoaPods, resources will be in MediaEditor.bundle
-        if let bundleURL = defaultBundle.resourceURL,
-           let resourceBundle = Bundle(url: bundleURL.appendingPathComponent("MediaEditor.bundle")) {
-            return resourceBundle
-        }
-        // Otherwise, the default bundle is used for resources
-        return defaultBundle
+        return Bundle(for: MediaEditor.self)
 #endif
     }
 
