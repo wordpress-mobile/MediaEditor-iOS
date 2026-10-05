@@ -8,7 +8,7 @@ platform :ios do
     run_tests(
       project: 'MediaEditor.xcodeproj',
       scheme: 'MediaEditor',
-      devices: ['iPhone 11'],
+      devices: ['iPhone 17'],
       deployment_target_version: '14.5',
       prelaunch_simulator: true,
       buildlog_path: File.join(__dir__, '.build', 'logs'),
