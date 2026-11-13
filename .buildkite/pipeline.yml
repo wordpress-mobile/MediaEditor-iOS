@@ -21,7 +21,9 @@ steps:
     key: "test"
     command: |
       install_gems
+      restore_swiftpm_cache --package-resolved MediaEditor.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
       bundle exec fastlane ios test
+      save_swiftpm_cache --package-resolved MediaEditor.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
     plugins: *common_plugins
     artifact_paths:
       - .build/logs/*.log
