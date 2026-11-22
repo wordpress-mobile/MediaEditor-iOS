@@ -12,3 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+}
