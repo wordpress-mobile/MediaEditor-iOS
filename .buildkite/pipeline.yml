@@ -5,12 +5,12 @@ agents:
   queue: mac
 
 env:
-  IMAGE_ID: xcode-27.2
+  IMAGE_ID: xcode-27.2-v3
 
 # Nodes with values to reuse in the pipeline.
 common_params:
   plugins: &common_plugins
-    - automattic/a8c-ci-toolkit#7.1.1
+    - automattic/a8c-ci-toolkit#8.0.1
 
 # This is the default pipeline – it will build and test the library
 steps:
